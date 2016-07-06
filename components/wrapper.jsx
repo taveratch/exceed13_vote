@@ -12,9 +12,9 @@ var Rb = require('react-bootstrap');
         var CircularProgressBar = require('./circular-progressbar/wrapper.jsx');
         var Col = Rb.Col;
         return (
-          <div>
-            {/*<NavBar />*/}
-            <div>
+          <div style={{height: "100%"}}>
+            <NavBar />
+            <div style={{height: "100%", paddingTop: 50}} >
               <Col xs={12} sm={5} style={{height: "100%", display: "table"}}>
                 <div  style={{display: "table-cell", verticalAlign: "middle"}}>
                   <CircularProgressBar />
