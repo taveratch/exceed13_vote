@@ -26,12 +26,23 @@ var Rb = require('react-bootstrap');
             }).error(function (error) {});
         },
         render: function() {
+            /* Functions */
+            var dispatch = _.bind(this.dispatch, this);
             /* Components */
             var NavBar = require('./nav-bar/NavigationBar.jsx');
             var UserPanel = require('./user-panel/wrapper.jsx');
             var CircularProgressBar = require('./circular-progressbar/wrapper.jsx');
-            var Contents = require('./contents/wrapper.jsx');
+            var Thumbnails = require('./contents/thumbnails/wrapper.jsx');
+            var SingleContent = require('./contents/single-content/wrapper.jsx');
             var Col = Rb.Col;
+            var contentView;
+            switch(this.state.pane) {
+              case 'thumbnails':
+                contentView = <Thumbnails dispatch={dispatch} contents={this.state.contents} />;
+                break;
+              case 'single_content':
+                contentView = <SingleContent dispatch={dispatch} content={this.state.contents[this.state.content_id]} />;
+            }
             return (
                 <div className="full-height">
                     <NavBar/>
@@ -40,7 +51,7 @@ var Rb = require('react-bootstrap');
                             <UserPanel {...this.state.user} />
                         </Col>
                         <Col className="full-height contents-panel" style={{overflowY: "scroll"}} xs={12} sm={9}>
-                            <Contents contents={this.state.contents} />
+                            {contentView}
                         </Col>
                     </div>
                 </div>

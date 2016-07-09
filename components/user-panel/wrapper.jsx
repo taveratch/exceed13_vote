@@ -20,7 +20,6 @@ var Rb = require('react-bootstrap');
                   <div>
                     <CircularProgressBar percent={this.props.percent}/>
                   </div>
-
                   <ProfileInfo {...profileInfoProps} />
                   <VotePanel {...votePanelProps} />
                 </div>

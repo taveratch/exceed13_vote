@@ -7,10 +7,15 @@
         "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
         "contents": [{
             "header": "What is it?",
-            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
-        }, {
+            "desc": "* A robot with ability to measure various parameters of its surroundings.\n* Helps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\n* Mobility helps with environment monitoring accessing hard to reach area.\n* Remotely controlled via internet."
+        },
+        {
+            "header": "How does it work?",
+            "desc": "Continuously monitors its surrounding environment parameters, which includes\n\n* Air purity or gas contamination\n* Air temperature\n* Infrared level, which can detect fire\n* Noise level\n* Estimated distance to the object in front of it\n\nWhen the any of the sensor values is out of normal window, the visual and audible alerts are applied to notice users. Continuously listens for movement and sensor control commands from the internet."
+        },
+        {
             "header": "Features",
-            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+            "desc": "* Environment sensing, visual, audible alerts.\n* Remote controlling from the web.\n* Mobility(movements).\n* Parameters reading from the web.\n* Abnormal parameter alerts on the web."
         }]
     },
     {

@@ -153,3 +153,23 @@ html {
     display: table-cell;
     vertical-align: middle;
 }
+
+.center {
+  text-align: center;
+}
+
+.content-box {
+  background-color: white;
+  padding: 20px;
+}
+
+.content-wrapper {
+  padding: 10px;
+}
+
+.header {
+  font-size: 15px;
+}
+hr{
+  margin: 5px 0;
+}

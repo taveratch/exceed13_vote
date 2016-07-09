@@ -5,6 +5,7 @@ var Rb = require('react-bootstrap');
 
     module.exports = React.createClass({
         render: function() {
+          var self = this;
           /* Components */
           var Col = Rb.Col;
           var ProjectThumbnail = require('./project-thumbnail.jsx');
@@ -20,7 +21,7 @@ var Rb = require('react-bootstrap');
                   };
                   return (
                     <Col md={4} sm={6}>
-                      <ProjectThumbnail {...props}/>
+                      <ProjectThumbnail dispatch={self.props.dispatch} {...props}/>
                     </Col>
                   );
                 })
