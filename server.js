@@ -9,9 +9,14 @@ var port = 8080;
 var compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
-app.use(express.static(__dirname + '/stylesheets'));
-app.get("/", function(req, res) {
-  res.sendFile(__dirname + '/index.html');
+app.use(express.static(__dirname + '/'));
+app.get("/dashboard", function(req, res) {
+  res.sendFile(__dirname + '/dashboard.html');
+});
+
+
+app.post("/api/login", function(req, res) {
+  res.sendFile(__dirname + '/user.json');
 });
 
 app.listen(port, function(error) {
