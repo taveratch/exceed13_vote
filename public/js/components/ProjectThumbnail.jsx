@@ -8,11 +8,11 @@ var Row = ReactBootstrap.Row;
 var Col = ReactBootstrap.Col;
 
 var ProjectThumbnail = React.createClass({
-	render() {
+	render: function() {
 		return (
 			<div>
 				<Grid>
-					<Row> 
+					<Row>
 						<Col className="no-padding" sm={3} md={4}>
 							<Thumbnail href="#" src="../public/img/project.jpg" responsive/>
 							<div className="thumbnail-content">

@@ -15,6 +15,10 @@ app.get("/dashboard", function(req, res) {
 });
 
 
+app.get('/api/contents', function(req, res) {
+    res.sendFile(__dirname + '/contents.json');
+});
+
 app.post("/api/login", function(req, res) {
   res.sendFile(__dirname + '/user.json');
 });

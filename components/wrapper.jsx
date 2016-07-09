@@ -19,26 +19,28 @@ var Rb = require('react-bootstrap');
             var self = this;
             http.post('/api/login').success(function(data) {
                 console.log(data);
-                self.dispatch({type: 'update', data: data});
+                self.dispatch({type: 'update_user', data: data});
             }).error(function(error) {});
+            http.get('/api/contents').success(function(data) {
+                self.dispatch({type: 'update_contents', data: data.data});
+            }).error(function (error) {});
         },
         render: function() {
             /* Components */
-            // var NavBar = require('./nav-bar/wrapper.jsx');
             var NavBar = require('./nav-bar/NavigationBar.jsx');
-            // var UserPanel = require('../public/js/components/ProfileInfo.jsx');
             var UserPanel = require('./user-panel/wrapper.jsx');
             var CircularProgressBar = require('./circular-progressbar/wrapper.jsx');
+            var Contents = require('./contents/wrapper.jsx');
             var Col = Rb.Col;
             return (
                 <div className="full-height">
                     <NavBar/>
                     <div className="full-height" style={{paddingTop: 50}}>
-                        <Col xs={12} sm={3} className="full-height" style={{display: "flex",alignItems: "center",justifyContent: "center"}}>
-                            <UserPanel {...this.state.user}/>
+                        <Col xs={12} sm={3} className="full-height user-panel" style={{display: "flex",alignItems: "center",justifyContent: "center"}}>
+                            <UserPanel {...this.state.user} />
                         </Col>
-                        <Col xs={12} sm={9}>
-
+                        <Col className="full-height contents-panel" style={{overflowY: "scroll"}} xs={12} sm={9}>
+                            <Contents contents={this.state.contents} />
                         </Col>
                     </div>
                 </div>

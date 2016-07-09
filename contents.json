@@ -1,0 +1,121 @@
+{
+    "status": 200,
+    "data": [{
+        "group_name": "ceedX",
+        "project_name": "iRobot",
+        "cover_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "contents": [{
+            "header": "What is it?",
+            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
+        }, {
+            "header": "Features",
+            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+        }]
+    },
+    {
+        "group_name": "ceedY",
+        "project_name": "iRobot2",
+        "cover_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "contents": [{
+            "header": "What is it?",
+            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
+        }, {
+            "header": "Features",
+            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+        }]
+    },
+    {
+        "group_name": "ceedZ",
+        "project_name": "iRobot3",
+        "cover_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "contents": [{
+            "header": "What is it?",
+            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
+        }, {
+            "header": "Features",
+            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+        }]
+    },
+    {
+        "group_name": "ceedZ",
+        "project_name": "iRobot3",
+        "cover_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "contents": [{
+            "header": "What is it?",
+            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
+        }, {
+            "header": "Features",
+            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+        }]
+    },
+    {
+        "group_name": "ceedZ",
+        "project_name": "iRobot3",
+        "cover_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "contents": [{
+            "header": "What is it?",
+            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
+        }, {
+            "header": "Features",
+            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+        }]
+    },
+    {
+        "group_name": "ceedZ",
+        "project_name": "iRobot3",
+        "cover_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "contents": [{
+            "header": "What is it?",
+            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
+        }, {
+            "header": "Features",
+            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+        }]
+    },
+    {
+        "group_name": "ceedZ",
+        "project_name": "iRobot3",
+        "cover_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "contents": [{
+            "header": "What is it?",
+            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
+        }, {
+            "header": "Features",
+            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+        }]
+    },
+    {
+        "group_name": "ceedZ",
+        "project_name": "iRobot3",
+        "cover_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "contents": [{
+            "header": "What is it?",
+            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
+        }, {
+            "header": "Features",
+            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+        }]
+    },
+    {
+        "group_name": "ceedZ",
+        "project_name": "iRobot3",
+        "cover_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "project_image": "http://localhost:8080/assets/img/project_1_thumbnail.png",
+        "contents": [{
+            "header": "What is it?",
+            "desc": "A robot with ability to measure various parameters of its surroundings.\nHelps discover and prevent harmful environmental hazards in risky area, such as factory or disaster site.\nMobility helps with environment monitoring accessing hard to reach area.\nRemotely controlled via internet."
+        }, {
+            "header": "Features",
+            "desc": "Environment sensing, visual, audible alerts.\nRemote controlling from the web.\nMobility(movements).\nParameters reading from the web.\nAbnormal parameter alerts on the web."
+        }]
+    }
+  ]
+}
