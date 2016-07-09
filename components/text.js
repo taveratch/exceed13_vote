@@ -2,7 +2,7 @@
     'use strict';
 
     module.exports = {
-        vote: ['Best of hardware', 'Best of software', 'Popular vote', 'Top rated']
+        vote: ['Best of Hardware', 'Best of Software', 'Popular vote', 'Top rated']
     };
 
 }());

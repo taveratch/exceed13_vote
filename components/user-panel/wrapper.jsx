@@ -15,8 +15,8 @@ var Rb = require('react-bootstrap');
             var votePanelProps = _.pick(this.props, ['quota']);
             /* JSX */
             return (
-              <div className="full-height" style={{display: "table"}}>
-                <div style={{display: "table-cell", verticalAlign: "middle"}}>
+              <div className="full-heigh middle-vertical-parent">
+                <div className="middle-vertical-child">
                   <div>
                     <CircularProgressBar percent={this.props.percent}/>
                   </div>
