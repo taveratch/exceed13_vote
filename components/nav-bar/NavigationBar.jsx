@@ -7,7 +7,14 @@ var NavigationBar = React.createClass({
         var NavbarBrand = ReactBootstrap.NavbarBrand;
         var Nav = ReactBootstrap.Nav;
         var NavItem = ReactBootstrap.NavItem;
-
+        var Profile = require('./profile/profile.jsx');
+        var Signin = require('./profile/signin.jsx');
+        var profileView;
+        if(!this.props.user){
+          profileView = <Signin />;
+        }else {
+          profileView = <Profile username={this.props.user.username}/>;
+        }
         var Image = ReactBootstrap.Image;
         return (
             <NavBar fixedTop={true}>
@@ -21,7 +28,7 @@ var NavigationBar = React.createClass({
                     </a>
                 </NavbarBrand>
                 <Nav pullRight>
-                    <NavItem className="navbar-profile page-scroll" eventKey={1}>Sign in</NavItem>
+                    { profileView }
                 </Nav>
             </NavBar>
         );

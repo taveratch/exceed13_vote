@@ -14,7 +14,7 @@ var Rb = require('react-bootstrap');
               {
                 this.props.contents.map(function(result, i) {
                   var props = {
-                    key: i,
+                    i: i,
                     imgSrc: result.cover_image,
                     groupName: result.group_name,
                     projectName: result.project_name

@@ -39,7 +39,8 @@ var _  = require('lodash');
               );
             case 'thumbnails':
               return _.merge(state, {
-                pane: 'thumbnails'
+                pane: 'thumbnails',
+                vote: state.user.quota
               });
             case 'single_content':
               return _.merge(state, {
@@ -48,7 +49,8 @@ var _  = require('lodash');
                 vote: state.user.quota
               });
             case 'vote':
-
+              state.user.quota = _.merge({},state.vote);
+              return state;
             case 'select_vote':
               if (state.vote[action.key] === 0 ){
                 state.vote[action.key] = 1;

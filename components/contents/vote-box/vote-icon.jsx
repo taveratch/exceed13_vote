@@ -14,7 +14,7 @@ var React = require('react');
         render: function() {
             return (
               <div className="center">
-                <img style={{cursor: "pointer"}} onClick={this.handleClick} className={this.state.clicked ? "voted" : this.props.quota===0 ? "" : "non-voted"} src={this.props.imgSrc}/>
+                <img style={{cursor: "pointer"}} onClick={this.handleClick} className={this.state.clicked && this.props.quota !== 0 ? "voted" : this.props.quota === 0 ? "" : "non-voted"} src={this.props.imgSrc}/>
                 <p style={{marginTop: 15}}>{this.props.text}</p>
               </div>
             );

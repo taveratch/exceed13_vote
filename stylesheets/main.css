@@ -53,7 +53,7 @@ html {
     background-color: #8bcbf7;
 }
 .navbar-default .navbar-nav> li.navbar-profile {
-    background-color: #e50a82;
+    background-color: #E482CB;
 }
 .navbar-default .navbar-nav> li.navbar-exceed:hover, .navbar-default .navbar-nav> li.navbar-exceed:focus {
     background-color: #178ACC;
@@ -168,6 +168,9 @@ html {
 }
 .content-wrapper {
     padding: 10px;
+    margin: 20px;
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.05);
 }
 .header {
     font-size: 15px;
@@ -208,4 +211,15 @@ hr {
   color: white;
   border-radius: 4000px;
   cursor: pointer;
+}
+
+.btn-vote:hover {
+  background-color: #E6A0D4;
+  transition: 0.5s;
+}
+
+.btn-back {
+  position: absolute;
+  top: 20px;
+  left : -5%;
 }

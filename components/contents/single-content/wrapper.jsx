@@ -3,6 +3,9 @@ var Rb = require('react-bootstrap');
 (function() {
     'use strict';
     module.exports = React.createClass({
+        back: function() {
+            this.props.dispatch({type: 'thumbnails'});
+        },
         render: function() {
             /* Components */
             var ContentBox = require('./content-box.jsx');
@@ -11,8 +14,9 @@ var Rb = require('react-bootstrap');
             /* JSX */
             return (
                 <div className="full-width">
-                    <Col md={8} mdOffset={2} sm={10} smOffset={1}>
+                    <Col md={9} mdOffset={1} sm={10} smOffset={1}>
                       <div className="full-width center">
+                        <img onClick={this.back} style={{cursor: "pointer"}} className="btn-back" src="/assets/img/back.png" />
                         <h1>{this.props.content.project_name}</h1>
                         <h3>{this.props.content.group_name}</h3>
                         <img src={this.props.content.project_image} responsive/>

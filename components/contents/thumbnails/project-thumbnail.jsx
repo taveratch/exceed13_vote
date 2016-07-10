@@ -5,7 +5,8 @@ var ReactBootstrap = require('react-bootstrap');
 
 		module.exports = React.createClass({
 			handleClick: function() {
-				this.props.dispatch({type: 'single_content', id: this.props.key});
+				this.props.dispatch({type: 'single_content', id: this.props.i});
+				$(".contents-panel").scrollTop(0);
 			},
 			render: function() {
 				/* Components */
