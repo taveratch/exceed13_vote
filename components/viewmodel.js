@@ -25,7 +25,7 @@ var _  = require('lodash');
                 {
                   user: _.merge(state.user,
                     action.data,
-                    { percent: _.filter(action.data.quota, function(i){ return i===1; }).length * 100.0 / (action.data.quota.length)}
+                    { percent: percentCalulator(action.data.quota)}
                   ),
                   vote: action.data.quota
                 }
@@ -57,10 +57,14 @@ var _  = require('lodash');
               }else {
                 state.vote[action.key] = 0;
               }
+              state.user.percent = percentCalulator(state.vote);
               return state;
             default:
               return state;
         }
     };
 
+    function percentCalulator(arr) {
+      return _.filter(arr, function(i){ return i===0; }).length * 100.0 / (arr.length);
+    }
 }());

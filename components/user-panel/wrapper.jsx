@@ -8,7 +8,7 @@ var Rb = require('react-bootstrap');
             /* Components */
             var Col = Rb.Col;
             var ProfileInfo = require('./ProfileInfo.jsx');
-            var CircularProgressBar = require('../circular-progressbar/wrapper.jsx');
+            var ProfileBar = require('./profile-bar.jsx');
             var VotePanel = require('./vote_panel.jsx');
             /* Props */
             var profileInfoProps = _.pick(this.props, ['username', 'group']);
@@ -17,9 +17,7 @@ var Rb = require('react-bootstrap');
             return (
               <div className="full-heigh middle-vertical-parent">
                 <div className="middle-vertical-child">
-                  <div>
-                    <CircularProgressBar percent={this.props.percent}/>
-                  </div>
+                  <ProfileBar percent={this.props.percent}/>
                   <ProfileInfo {...profileInfoProps} />
                   <VotePanel {...votePanelProps} />
                 </div>
