@@ -14,7 +14,6 @@ var md = new Remarkable();
                   <p dangerouslySetInnerHTML={{__html: md.render(this.props.desc)}}></p>
                 </div>
               </div>
-
             );
           }
       });

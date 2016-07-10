@@ -1,8 +1,14 @@
+@font-face {
+    font-family: 'Sukhumvit';
+    src: url('../assets/fonts/sukhumvit.woff');
+}
 body {
-    font-family: 'Droid Sans', serif;
-    background-color: #f0f3fa;
+    /*font-family: 'Droid Sans', serif;*/
+    font-family: 'Sukhumvit';
+    background-color: #EEF4F9;
     width: 100%;
     height: 100%;
+    color: #6B686D;
 }
 html {
     width: 100%;
@@ -144,7 +150,7 @@ html {
     margin: 0 0;
 }
 .user-panel {
-    background-color: #E4E8E9;
+    background-color: #ECF0F1;
 }
 .middle-vertical-parent {
     display: table;
@@ -153,23 +159,44 @@ html {
     display: table-cell;
     vertical-align: middle;
 }
-
 .center {
-  text-align: center;
+    text-align: center;
 }
-
 .content-box {
-  background-color: white;
-  padding: 20px;
+    background-color: white;
+    padding: 20px;
 }
-
 .content-wrapper {
-  padding: 10px;
+    padding: 10px;
 }
-
 .header {
-  font-size: 15px;
+    font-size: 15px;
 }
-hr{
-  margin: 5px 0;
+hr {
+    margin: 5px 0;
+}
+.thumbnail> img {
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+    display: block;
+}
+.thumbnail> img:hover {
+    transition: 1s;
+    display: block;
+}
+.voted {
+    /*outline: 5px solid #E482CB;
+    border-radius: 500px;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    box-sizing: border-box;*/
+    display: inline-block;
+    -webkit-border-radius: 1000px;
+    -moz-border-radius: 1000px;
+    border-radius: 1000px;
+    border: 4px solid #E482CB;
+    /*transition: 0.3s;*/
 }

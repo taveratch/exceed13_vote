@@ -17,7 +17,8 @@ var _  = require('lodash');
                   quota: [0,0,0,0]
                 },
                 contents: [],
-                content_id: 0
+                content_id: 0,
+                vote: [0,0,0,0]
               });
             case 'update_user':
               return _.merge(state,
@@ -42,7 +43,8 @@ var _  = require('lodash');
             case 'single_content':
               return _.merge(state, {
                 pane: 'single_content',
-                content_id: action.id
+                content_id: action.id,
+                vote: [0,0,0,0]
               });
             default:
               return state;

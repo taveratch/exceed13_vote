@@ -41,7 +41,7 @@ var Rb = require('react-bootstrap');
                 contentView = <Thumbnails dispatch={dispatch} contents={this.state.contents} />;
                 break;
               case 'single_content':
-                contentView = <SingleContent dispatch={dispatch} content={this.state.contents[this.state.content_id]} />;
+                contentView = <SingleContent dispatch={dispatch} quota={this.state.user.quota} content={this.state.contents[this.state.content_id]} />;
             }
             return (
                 <div className="full-height">
