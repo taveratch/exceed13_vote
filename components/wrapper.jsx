@@ -57,9 +57,7 @@ var Rb = require('react-bootstrap');
                         }}>
                             <UserPanel vote={this.state.vote} {...this.state.user}/>
                         </Col>
-                        <Col className="full-height contents-panel" style={{
-                            overflowY: "scroll"
-                        }} xs={6} sm={8} md={9}>
+                        <Col className="full-height contents-panel" style={{overflowY: "scroll"}} xs={6} sm={8} md={9}>
                             {contentView}
                         </Col>
                     </div>

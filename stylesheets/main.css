@@ -91,7 +91,14 @@ html {
     margin-bottom: 0 !important;
 }
 .thumbnail> img {
+    -webkit-filter: blur(4px);
+    -moz-filter: blur(4px);
+    -o-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
     display: block;
+    -webkit-transition: 0.6s;
+    transition: 0.6s;
 }
 .thumbnail-content {
     background: rgba(0, 0, 0, 0.7);
@@ -178,14 +185,6 @@ html {
 hr {
     margin: 5px 0;
 }
-.thumbnail> img {
-    -webkit-filter: blur(4px);
-    -moz-filter: blur(4px);
-    -o-filter: blur(4px);
-    -ms-filter: blur(4px);
-    filter: blur(4px);
-    display: block;
-}
 .thumbnail> img:hover {
     transition: 1s;
     display: block;
@@ -204,22 +203,19 @@ hr {
     -moz-border-radius: 500px;
     transition: 0.5;
 }
-
 .btn-vote {
-  background-color: #E482CB;
-  padding: 5px 55px;
-  color: white;
-  border-radius: 4000px;
-  cursor: pointer;
+    background-color: #E482CB;
+    padding: 5px 55px;
+    color: white;
+    border-radius: 4000px;
+    cursor: pointer;
 }
-
 .btn-vote:hover {
-  background-color: #E6A0D4;
-  transition: 0.5s;
+    background-color: #E6A0D4;
+    transition: 0.5s;
 }
-
 .btn-back {
-  position: absolute;
-  top: 20px;
-  left : -5%;
+    position: absolute;
+    top: 20px;
+    left: -5%;
 }
