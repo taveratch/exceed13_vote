@@ -22,7 +22,7 @@ var Rb = require('react-bootstrap');
                           return <ContentBox {...result} />;
                         })
                       }
-                      <VoteBox quota={this.props.quota} />
+                      <VoteBox dispatch={this.props.dispatch} vote={this.props.vote} quota={this.props.quota} />
                     </Col>
                 </div>
             );

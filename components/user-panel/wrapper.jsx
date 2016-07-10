@@ -12,7 +12,7 @@ var Rb = require('react-bootstrap');
             var VotePanel = require('./vote_panel.jsx');
             /* Props */
             var profileInfoProps = _.pick(this.props, ['username', 'group']);
-            var votePanelProps = _.pick(this.props, ['quota']);
+            var votePanelProps = _.pick(this.props, ['vote']);
             /* JSX */
             return (
               <div className="full-heigh middle-vertical-parent">

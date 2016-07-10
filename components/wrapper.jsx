@@ -38,17 +38,18 @@ var Rb = require('react-bootstrap');
             var contentView;
             switch(this.state.pane) {
               case 'thumbnails':
-                contentView = <Thumbnails dispatch={dispatch} contents={this.state.contents} />;
+                contentView = <Thumbnails dispatch={dispatch} vote={this.state.vote} contents={this.state.contents} />;
                 break;
               case 'single_content':
-                contentView = <SingleContent dispatch={dispatch} quota={this.state.user.quota} content={this.state.contents[this.state.content_id]} />;
+                contentView = <SingleContent dispatch={dispatch} vote={this.state.vote} quota={this.state.user.quota} content={this.state.contents[this.state.content_id]} />;
             }
+                console.log(this.state.user.quota);
             return (
                 <div className="full-height">
                     <NavBar/>
                     <div className="full-height" style={{paddingTop: 50}}>
                         <Col xs={12} sm={3} className="full-height user-panel" style={{display: "flex",alignItems: "center",justifyContent: "center"}}>
-                            <UserPanel {...this.state.user} />
+                            <UserPanel vote={this.state.vote} {...this.state.user} />
                         </Col>
                         <Col className="full-height contents-panel" style={{overflowY: "scroll"}} xs={12} sm={9}>
                             {contentView}

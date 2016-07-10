@@ -26,7 +26,8 @@ var _  = require('lodash');
                   user: _.merge(state.user,
                     action.data,
                     { percent: _.filter(action.data.quota, function(i){ return i===1; }).length * 100.0 / (action.data.quota.length)}
-                  )
+                  ),
+                  vote: action.data.quota
                 }
               );
             case 'update_contents':
@@ -44,8 +45,17 @@ var _  = require('lodash');
               return _.merge(state, {
                 pane: 'single_content',
                 content_id: action.id,
-                vote: [0,0,0,0]
+                vote: state.user.quota
               });
+            case 'vote':
+
+            case 'select_vote':
+              if (state.vote[action.key] === 0 ){
+                state.vote[action.key] = 1;
+              }else {
+                state.vote[action.key] = 0;
+              }
+              return state;
             default:
               return state;
         }

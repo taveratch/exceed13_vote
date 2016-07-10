@@ -10,7 +10,7 @@ var React = require('react');
         return (
           <div>
             {
-              this.props.quota.map(function(result, i) {
+              this.props.vote.map(function(result, i) {
                 return <CheckBox checked={result === 0} text={text.vote[i]}/>;
               })
             }

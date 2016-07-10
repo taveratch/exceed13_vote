@@ -4,6 +4,9 @@ var Rb = require('react-bootstrap');
     'use strict';
 
     module.exports = React.createClass({
+        handleClick: function() {
+            this.props.dispatch({type: 'vote'});
+        },
         render: function() {
             var self = this;
             /* Components */
@@ -20,15 +23,23 @@ var Rb = require('react-bootstrap');
                   <p>Tap on icon to vote (You can have more than 1 vote)</p>
                   <Row style={{marginTop: 25}}>
                     {
-                      text.vote_icon.map(function(result, i ){
+                      text.vote.map(function(result, i ){
                         return (
                           <Col xs={3} sm={3} md={3} lg={3}>
-                            <VoteIcon quota={self.props.quota[i]} imgSrc={result} text={text.vote[i]}/>
+                            <VoteIcon dispatch={self.props.dispatch}
+                              i={i}
+                              vote={self.props.vote[i]}
+                              quota={self.props.quota[i]}
+                              imgSrc={self.props.quota[i]===1 ? text.vote_icon[i] : text.vote_icon_disabled[i]}
+                              text={text.vote[i]} />
                           </Col>
                         );
                       })
                     }
                   </Row>
+                  <div className="full-width center" style={{marginTop: 30}}>
+                    <span onClick={this.handleClick} className="btn-vote">Vote</span>
+                  </div>
                 </div>
               </div>
             );
