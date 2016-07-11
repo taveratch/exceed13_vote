@@ -6,13 +6,13 @@ var Rb = require('react-bootstrap');
       module.exports = React.createClass({
           render: function() {
             /* Components */
-            var Col = Rb.Col;
-            var ProfileInfo = require('./ProfileInfo.jsx');
-            var ProfileBar = require('./profile-bar.jsx');
-            var VotePanel = require('./vote_panel.jsx');
+            var Col              = Rb.Col;
+            var ProfileInfo      = require('./ProfileInfo.jsx');
+            var ProfileBar       = require('./profile-bar.jsx');
+            var VotePanel        = require('./vote_panel.jsx');
             /* Props */
             var profileInfoProps = _.pick(this.props, ['username', 'group']);
-            var votePanelProps = _.pick(this.props, ['vote']);
+            var votePanelProps   = _.pick(this.props, ['vote']);
             /* JSX */
             return (
               <div className="full-heigh middle-vertical-parent">

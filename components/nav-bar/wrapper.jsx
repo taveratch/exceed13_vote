@@ -6,8 +6,8 @@ var Rb    = require('react-bootstrap');
 
       module.exports = React.createClass({
           render: function() {
-              var NavBar = Rb.Navbar;
-              var Nav    = Rb.Nav;
+              var NavBar  = Rb.Navbar;
+              var Nav     = Rb.Nav;
               var NavItem = Rb.NavItem;
               return (
                   <NavBar fixedTop={true} style={{marginBottom: 0}}>

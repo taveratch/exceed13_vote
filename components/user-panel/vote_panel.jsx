@@ -6,7 +6,7 @@ var React = require('react');
       render: function() {
         /* Components */
         var CheckBox = require('../checkbox/wrapper.jsx');
-        var text    = require('../text');
+        var text     = require('../text');
         return (
           <div>
             {

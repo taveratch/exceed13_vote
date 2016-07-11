@@ -8,12 +8,12 @@ var Rb = require('react-bootstrap');
             this.props.dispatch({type: 'vote'});
         },
         render: function() {
-            var self = this;
+            var self     = this;
             /* Components */
             var VoteIcon = require('./vote-icon.jsx');
-            var text = require('../../text');
-            var Col = Rb.Col;
-            var Row = Rb.Row;
+            var text     = require('../../text');
+            var Col      = Rb.Col;
+            var Row      = Rb.Row;
             /* JSX */
             return (
               <div className="full-width content-wrapper">

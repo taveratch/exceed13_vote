@@ -8,16 +8,30 @@ var ReactBootstrap = require('react-bootstrap');
 				this.props.dispatch({type: 'single_content', id: this.props.i});
 				$(".contents-panel").scrollTop(0);
 			},
+			mouseOver: function() {
+				console.log("onMouseOver");
+				$('.thumbnail-img-'+ this.props.i + ' img').css({
+	          "-webkit-filter": "none",
+	          "filter": "none"
+	      });
+			},
+			mouseOut: function() {
+				console.log("onMouseOut");
+				$('.thumbnail-img-'+ this.props.i + ' img').css({
+	          "-webkit-filter": "blur("+4+"px)",
+	      	"filter": "blur("+4+"px)"
+	      });
+			},
 			render: function() {
 				/* Components */
 				var Thumbnail = ReactBootstrap.Thumbnail;
 				/* JSX */
 				return (
 					<div className="no-padding" style={{textAlign: "center"}}>
-							<Thumbnail href="#" src={this.props.imgSrc} />
-							<div className="thumbnail-content" onClick={this.handleClick}>
+							<Thumbnail className={"thumbnail-img-"+ this.props.i} href="#" src={this.props.imgSrc} />
+							<div onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} className="thumbnail-content" onClick={this.handleClick}>
 									<div className="middle-vertical-parent full-height full-width">
-										<div className="middle-vertical-child">
+										<div className="thumbnail-wrapper middle-vertical-child">
 											<h3>{this.props.groupName}</h3>
 											<p>{this.props.projectName}</p>
 										</div>

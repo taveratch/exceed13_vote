@@ -3,19 +3,19 @@ var ReactBootstrap = require('react-bootstrap');
 
 var NavigationBar = React.createClass({
     render: function() {
-        var NavBar = ReactBootstrap.Navbar;
+        var NavBar      = ReactBootstrap.Navbar;
         var NavbarBrand = ReactBootstrap.NavbarBrand;
-        var Nav = ReactBootstrap.Nav;
-        var NavItem = ReactBootstrap.NavItem;
-        var Profile = require('./profile/profile.jsx');
-        var Signin = require('./profile/signin.jsx');
+        var Nav         = ReactBootstrap.Nav;
+        var NavItem     = ReactBootstrap.NavItem;
+        var Profile     = require('./profile/profile.jsx');
+        var Signin      = require('./profile/signin.jsx');
         var profileView;
         if(!this.props.user){
-          profileView = <Signin />;
+          profileView   = <Signin />;
         }else {
-          profileView = <Profile username={this.props.user.username}/>;
+          profileView   = <Profile username={this.props.user.username}/>;
         }
-        var Image = ReactBootstrap.Image;
+        var Image       = ReactBootstrap.Image;
         return (
             <NavBar fixedTop={true}>
                 <Nav>
