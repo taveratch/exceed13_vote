@@ -9,14 +9,12 @@ var ReactBootstrap = require('react-bootstrap');
 				$(".contents-panel").scrollTop(0);
 			},
 			mouseOver: function() {
-				console.log("onMouseOver");
 				$('.thumbnail-img-'+ this.props.i + ' img').css({
 	          "-webkit-filter": "none",
 	          "filter": "none"
 	      });
 			},
 			mouseOut: function() {
-				console.log("onMouseOut");
 				$('.thumbnail-img-'+ this.props.i + ' img').css({
 	          "-webkit-filter": "blur("+4+"px)",
 	      	"filter": "blur("+4+"px)"
