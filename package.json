@@ -21,6 +21,7 @@
     "react": "^15.1.0",
     "react-bootstrap": "^0.29.5",
     "react-dom": "^15.1.0",
+    "react-router": "^2.5.2",
     "react-timer-mixin": "^0.13.3",
     "remarkable": "^1.6.2",
     "webpack-dev-middleware": "^1.6.1",

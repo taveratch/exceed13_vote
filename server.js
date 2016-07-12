@@ -12,12 +12,11 @@ var compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
 app.use(webpackHotMiddleware(compiler));
 app.use(express.static(__dirname + '/'));
-app.get("/dashboard", function(req, res) {
+app.get("/", function(req, res) {
   var md = new MobileDetect(req.headers['user-agent']);
   console.log(md.mobile());
   res.sendFile(__dirname + '/dashboard.html');
 });
-
 
 app.get('/api/contents', function(req, res) {
     res.sendFile(__dirname + '/contents.json');

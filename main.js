@@ -1,2 +1,2 @@
 var React = require('react');
-var Wrapper = require('./components/wrapper.jsx');
+var Router = require('./components/router.jsx');

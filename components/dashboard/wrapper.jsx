@@ -5,7 +5,7 @@ var Rb = require('react-bootstrap');
 (function() {
     'use strict';
     /* Services */
-    var http = require('../lib/http.service');
+    var http = require('../../lib/http.service');
     var vm = require('./viewmodel');
     /* React */
     module.exports = React.createClass({
@@ -67,8 +67,8 @@ var Rb = require('react-bootstrap');
     });
 
 }());
-
-var Wrapper = require('./wrapper.jsx');
-// var Wrapper = require('../public/js/components/App.jsx');
-ReactDOM.render(
-    <Wrapper/>, document.getElementById("container"));
+//
+// var Wrapper = require('./wrapper.jsx');
+// // var Wrapper = require('../public/js/components/App.jsx');
+// ReactDOM.render(
+//     <Wrapper/>, document.getElementById("container"));
