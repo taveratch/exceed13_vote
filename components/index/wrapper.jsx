@@ -27,6 +27,7 @@
       var Image = ReactBootstrap.Image;
       var Timer = require('./timer/wrapper.jsx');
       var NavigationBar = require('./nav-bar/wrapper.jsx');
+      var AwardsPanel = require('./awards-panel/wrapper.jsx');
 			return (
 				<div className="full-height full-width">
 					<div id="first-page" className="full-height full-width center">
@@ -36,10 +37,13 @@
 							fontSize: "1.5em"
 						}}>eXceed vote will be closed in</p>
 						<Timer time={this.state.time} formatter={vm().toHHMMSS}/>
+            <div id="awards-panel" className="full-width" style={{height: "20%", bottom: 0, position: "absolute"}}>
+              <AwardsPanel />
+            </div>
 					</div>
-          <div id="second-page" className="full-height full-width">
-            
-          </div>
+          {/*<div id="second-page" className="full-height full-width">
+
+          </div>*/}
 				</div>
 			);
 		}
