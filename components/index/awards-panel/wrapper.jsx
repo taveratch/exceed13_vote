@@ -16,7 +16,7 @@
                     <Col sm={3} md={3}>
                       <Award src={texts.vote_icon[i]}>
                         <p>{texts.vote[i]}</p>
-                        <p>{texts.vote_desc[i]}</p>
+                        <p className="thin">{texts.vote_desc[i]}</p>
                       </Award>
                     </Col>
                   );

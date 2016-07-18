@@ -1,4 +1,3 @@
-var React = require('react');
 var CircleProgress = require('rc-progress').Circle;
 (function() {
     'use strict';

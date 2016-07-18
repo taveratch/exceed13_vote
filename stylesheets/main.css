@@ -4,7 +4,8 @@
 }
 body {
     /*font-family: 'Droid Sans', serif;*/
-    font-family: 'Sukhumvit';
+    /*font-family: 'Sukhumvit';*/
+    font-family: 'Roboto', sans-serif;
     background-color: #EEF4F9;
     width: 100%;
     height: 100%;
@@ -13,7 +14,7 @@ body {
 html {
     width: 100%;
     height: 100%;
-    background-color: #EEF4F9;
+    background-color: white;
 }
 .container {
     margin: 0;
@@ -29,6 +30,12 @@ html {
     .top-nav-collapse {
         padding: 0;
     }
+}
+
+@media(max-width:767px) {
+  #awards-panel {
+    display: none;
+  }
 }
 .navbar {
     background-repeat: no-repeat;
@@ -203,6 +210,10 @@ hr {
     -moz-border-radius: 500px;
     transition: 0.5;
 }
+.disabled {
+    cursor: progress;
+    background: #E6A0D4;
+}
 .btn-vote {
     background-color: #E482CB;
     padding: 5px 55px;
@@ -256,4 +267,21 @@ hr {
 #awards-panel {
   /*background-color: white;*/
   background-color: rgba(255,255,255,0.17);
+}
+
+.flex-center-y {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center-x {
+  justify-content: center;
+}
+
+.alt {
+  background: #F5F5F5;
+}
+
+p.thin {
+  font-weight: 300;
 }
