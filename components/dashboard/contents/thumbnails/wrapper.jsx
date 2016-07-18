@@ -15,12 +15,12 @@ var Rb = require('react-bootstrap');
                 this.props.contents.map(function(result, i) {
                   var props = {
                     i: i,
-                    imgSrc: result.cover_image,
-                    groupName: result.group_name,
-                    projectName: result.project_name
+                    imgSrc: result.image_url,
+                    groupName: result.group.group_name,
+                    projectName: result.name
                   };
                   return (
-                    <Col md={4} sm={6}>
+                    <Col xs={6} md={3} sm={4} className="no-padding">
                       <ProjectThumbnail dispatch={self.props.dispatch} {...props}/>
                     </Col>
                   );

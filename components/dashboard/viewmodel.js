@@ -7,15 +7,7 @@ var _  = require('lodash');
             case 'init':
               return _.merge({}, {
                 pane: 'thumbnails',
-                user: {
-                  username : '',
-                  group : {
-                    id: '',
-                    name : ''
-                  },
-                  percent: 0,
-                  quota: [0,0,0,0]
-                },
+                user: null,
                 contents: [],
                 content_id: 0,
                 vote: [0,0,0,0]
@@ -23,18 +15,14 @@ var _  = require('lodash');
             case 'update_user':
               return _.merge(state,
                 {
-                  user: _.merge(state.user,
-                    action.data,
-                    { percent: percentCalulator(action.data.quota)}
-                  ),
-                  vote: action.data.quota
+                  user: _.merge(state.user, action.data)
                 }
               );
             case 'update_contents':
               return _.merge(state,
                 {
                   pane: 'thumbnails',
-                  contents: action.data
+                  contents: action.data.projects
                 }
               );
             case 'thumbnails':

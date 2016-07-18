@@ -7,13 +7,19 @@ var Rb = require('react-bootstrap');
         render: function() {
             /* Components */
             var NavItem = Rb.NavItem;
+            var Row = Rb.Row;
+            var Col = Rb.Col;
             /* JSX */
             return (
-                <NavItem className="navbar-profile" eventKey={1}>
-                    {this.props.username}
-                    <img src="/assets/img/profile.png" style={{
-                        marginLeft: 10
-                    }} width={20} height={20} responsive/>
+                <NavItem eventKey={1}>
+                    <div className="flex-center-y" style={{color: "black"}}>
+                      <img width={15} src="/assets/img/blue_circle.png" />
+                      <div style={{marginLeft: 20}}>
+                        <span>{this.props.username}</span>
+                        <br></br>
+                        <span className="thin-gray">{this.props.group}</span>
+                      </div>
+                    </div>
                 </NavItem>
             );
         }

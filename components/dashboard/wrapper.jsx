@@ -17,12 +17,16 @@ var Rb = require('react-bootstrap');
         },
         componentDidMount: function() {
             var self = this;
-            http.post('/api/login').success(function(data) {
+            http.post('http://128.199.135.164:8080/api/login',{
+              username: "b5710501531",
+              password: "1q2w3e4r"
+            }).success(function(data) {
                 console.log(data);
                 self.dispatch({type: 'update_user', data: data});
             }).error(function(error) {});
-            http.get('/api/contents').success(function(data) {
-                self.dispatch({type: 'update_contents', data: data.data});
+            http.get('http://128.199.135.164:8080/api/project').success(function(data) {
+                console.log(data);
+                self.dispatch({type: 'update_contents', data: data});
             }).error(function(error) {});
         },
         render: function() {
@@ -36,21 +40,24 @@ var Rb = require('react-bootstrap');
             var SingleContent = require('./contents/single-content/wrapper.jsx');
             var Col = Rb.Col;
             var contentView;
-            switch (this.state.pane) {
-                case 'thumbnails':
-                    contentView = <Thumbnails dispatch={dispatch} vote={this.state.vote} contents={this.state.contents}/>;
-                    break;
-                case 'single_content':
-                    contentView = <SingleContent dispatch={dispatch} vote={this.state.vote} quota={this.state.user.quota} content={this.state.contents[this.state.content_id]}/>;
-            }
-            console.log(this.state.user.quota);
+            // switch (this.state.pane) {
+            //     case 'thumbnails':
+            //         contentView = <Thumbnails dispatch={dispatch} vote={this.state.vote} contents={this.state.contents}/>;
+            //         break;
+            //     case 'single_content':
+            //         contentView = <SingleContent dispatch={dispatch} vote={this.state.vote} quota={this.state.user.quota} content={this.state.contents[this.state.content_id]}/>;
+            // }
+            // console.log(this.state.user.quota);
             return (
                 <div className="full-height">
-                    <NavBar {...this.state}/>
-                    <div className="full-height" style={{
-                        paddingTop: 50
-                    }}>
-                        <Col xs={6} sm={4} md={3} className="full-height user-panel" style={{
+                    <NavBar {...this.state.user}/>
+                    <div className="full-height" style={{ paddingTop: 50 }}>
+                      <div className="full-height full-width" style={{padding: 15}}>
+                        <div id="content-container" className="full-width full-height">
+                          <Thumbnails dispatch={dispatch} contents={this.state.contents}/>
+                        </div>
+                      </div>
+                        {/*<Col xs={6} sm={4} md={3} className="full-height user-panel" style={{
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center"
@@ -59,7 +66,7 @@ var Rb = require('react-bootstrap');
                         </Col>
                         <Col className="full-height contents-panel" style={{overflowY: "scroll"}} xs={6} sm={8} md={9}>
                             {contentView}
-                        </Col>
+                        </Col>*/}
                     </div>
                 </div>
             );

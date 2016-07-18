@@ -25,7 +25,7 @@ var ReactBootstrap = require('react-bootstrap');
 				var Thumbnail = ReactBootstrap.Thumbnail;
 				/* JSX */
 				return (
-					<div className="no-padding" style={{textAlign: "center"}}>
+					<div className="project-thumbnail no-padding">
 							<Thumbnail className={"thumbnail-img-"+ this.props.i} href="#" src={this.props.imgSrc} />
 							<div onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} className="thumbnail-content" onClick={this.handleClick}>
 									<div className="middle-vertical-parent full-height full-width">

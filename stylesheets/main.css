@@ -72,8 +72,7 @@ html {
     background-color: #9d0c5b;
 }
 .navbar-brand {
-    transform: translateX(-50%);
-    left: 50%;
+    left: 20px;
     position: absolute;
     padding: 0px;
     /* firefox bug fix */
@@ -95,7 +94,12 @@ html {
 .thumbnail {
     display: inline-block;
     position: relative;
-    margin-bottom: 0 !important;
+    padding: 0px;
+    border: 0px;
+    border-radius: 0px;
+    height:100%;
+    width:100%;
+    margin: 0px;
 }
 .thumbnail> img {
     -webkit-filter: blur(4px);
@@ -105,6 +109,8 @@ html {
     filter: blur(4px);
     display: block;
     -webkit-transition: 0.6s;
+    height: 100%;
+    width:100%;
     transition: 0.6s;
 }
 .thumbnail-content {
@@ -121,7 +127,7 @@ html {
     text-align: center;
     -webkit-transition: 0.6s;
     transition: 0.6s;
-    margin: 5px;
+    margin:5px
 }
 .thumbnail-content:hover {
     opacity: 0;
@@ -141,7 +147,6 @@ html {
 }
 .no-padding {
     padding: 0px;
-    margin: 10px;
 }
 .row-eq-height {
     display: -webkit-box;
@@ -284,4 +289,29 @@ hr {
 
 p.thin {
   font-weight: 300;
+}
+
+.navbar-nav>li>a {
+  margin: 0px 20px 0px 0px;
+  padding: 0px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  line-height: 15px;
+  font-weight: 300;
+}
+
+.thin-gray {
+  color: rgba(107,104,109,0.7);
+}
+
+#content-container {
+  padding: 20px 35px;
+  background-color: white;
+}
+
+.project-thumbnail {
+  height: 250px;
+  text-align: center;
+  margin: 6px;
 }
