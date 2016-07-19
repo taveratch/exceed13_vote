@@ -22,10 +22,14 @@ app.get("/web/project", function (req, res) {
 	res.send("Hello");
 });
 
-app.get("/web/*", function (req, res) {
+app.get("/", function (req, res) {
+	res.sendFile(__dirname + "/view/index.html");
+});
+
+app.get("/dashboard", function (req, res) {
 	var md = new MobileDetect(req.headers['user-agent']);
 	console.log(md.mobile());
-	res.sendFile(__dirname + "/dashboard.html");
+	res.sendFile(__dirname + "/view/dashboard.html");
 });
 
 app.get('/api/contents', function (req, res) {

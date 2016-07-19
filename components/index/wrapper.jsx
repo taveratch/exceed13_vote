@@ -115,3 +115,6 @@
 		}
 	});
 }());
+
+var Wrapper = require('./wrapper.jsx');
+ReactDOM.render(<Wrapper />, document.getElementById('container'));

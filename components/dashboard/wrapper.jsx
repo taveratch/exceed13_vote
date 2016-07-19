@@ -78,3 +78,6 @@ var Rb = require('react-bootstrap');
 	});
 
 }());
+
+var Wrapper = require('./wrapper.jsx');
+ReactDOM.render(<Wrapper />, document.getElementById('container'));
