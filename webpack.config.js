@@ -2,8 +2,11 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  entry: './main.js',
-  output: { path: __dirname, filename: 'bundle.js', publicPath: '/static/' },
+  entry: {
+    main : './js/main.js',
+    project: './js/index.js'
+  },
+  output: { path: __dirname, filename: '[name].js' },
   module: {
     loaders: [
       {
@@ -18,4 +21,9 @@ module.exports = {
       { test: /\.(png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=100000' }
     ]
   },
+  resolve: {
+    root: [
+      path.resolve('./lib')
+    ]
+  }
 };

@@ -15,6 +15,13 @@ app.use(webpackDevMiddleware(compiler, {
 }));
 app.use(webpackHotMiddleware(compiler));
 app.use(express.static(__dirname + '/'));
+
+app.get("/web/project", function (req, res) {
+	var md = new MobileDetect(req.headers['user-agent']);
+	console.log(md.mobile());
+	res.send("Hello");
+});
+
 app.get("/web/*", function (req, res) {
 	var md = new MobileDetect(req.headers['user-agent']);
 	console.log(md.mobile());

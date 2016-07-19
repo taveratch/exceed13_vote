@@ -27,14 +27,12 @@ var _  = require('lodash');
               );
             case 'thumbnails':
               return _.merge(state, {
-                pane: 'thumbnails',
-                vote: state.user.quota
+                pane: 'thumbnails'
               });
             case 'single_content':
               return _.merge(state, {
                 pane: 'single_content',
-                content_id: action.id,
-                vote: state.user.quota
+                content_id: action.id
               });
             case 'vote':
               state.user.quota = _.merge({},state.vote);
