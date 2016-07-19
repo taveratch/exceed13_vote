@@ -34,6 +34,8 @@
 			var NavigationBar = require('./nav-bar/wrapper.jsx');
 			var AwardsPanel = require('./awards-panel/wrapper.jsx');
 			var TimelineItem = require('./index-2/timeline/wrapper.jsx');
+			var TimerPanel = require('./timer_panel.jsx');
+			var SigninPanel = require('./signin_panel.jsx');
 			var Col = ReactBootstrap.Col;
 			var Row = ReactBootstrap.Row;
 			var timelineSigninProp = {
@@ -76,9 +78,15 @@
 				<div className="full-height full-width">
 					<div id="first-page" className="full-height full-width center">
 						<NavigationBar/>
-						<img src="/assets/img/logo_inverse.png" className="img-responsive" style={{display: "inline"}}/>
-						<p style={{ fontSize: "1.5em" }}>eXceed vote will be closed in</p>
-						<Timer time={this.state.time} formatter={vm().toHHMMSS}/>
+						<div class>
+							<div>
+								<img src="/assets/img/logo_inverse.png" className="img-responsive" style={{display: "inline"}}/>
+								<div className="flex-center-x">
+									{/*<TimerPanel time={this.state.time} formatter={vm().toHHMMSS} />*/}
+									<SigninPanel />
+								</div>
+       				</div>
+      			</div>
 						<div id="awards-panel" className="full-width" style={{
 							height: "20%",
 							bottom: 0,

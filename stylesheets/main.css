@@ -284,6 +284,7 @@ hr {
 }
 
 .flex-center-x {
+  display: flex;
   justify-content: center;
 }
 
@@ -318,4 +319,32 @@ p.thin {
   height: 250px;
   text-align: center;
   margin: 6px;
+}
+
+#signin-container {
+  margin: 10px;
+  padding: 10px 80px;
+  background-color: rgba(255,255,255,0.17);
+}
+
+
+.button-success {
+    background-color: #64DDBB;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.button-success:hover {
+    background-color: #7DE3C6;
+    transition: 0.5s;
+}
+
+.button-block {
+  width: 100%;
+}
+
+input::-webkit-input-placeholder {
+  font-weight: 300;
 }
