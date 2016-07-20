@@ -5,8 +5,13 @@ var ReactBootstrap = require('react-bootstrap');
 
 		module.exports = React.createClass({
 			handleClick: function() {
-				this.props.dispatch({type: 'single_content', id: this.props.i});
-				$(".contents-panel").scrollTop(0);
+				// this.context.router.push({
+				// 	pathname: '/project',
+				// 	state: { project: this.state.contents[action.id]}
+				// });
+				// this.props.dispatch({type: 'redirect', id: this.props.i});
+				// $(".contents-panel").scrollTop(0);
+				this.props.redirect();
 			},
 			mouseOver: function() {
 				$('.thumbnail-img-'+ this.props.i + ' img').css({

@@ -1,13 +1,14 @@
-var _  = require('lodash');
+var cookie = require('js-cookie');
 (function() {
     'use strict';
 
     module.exports = function(state, action) {
+        var auth = require('auth.service');
+        var cookie = require('js-cookie');
         switch(action.type) {
             case 'init':
               return _.merge({}, {
                 pane: 'thumbnails',
-                user: null,
                 contents: [],
                 content_id: 0,
                 vote: [0,0,0,0]
@@ -29,9 +30,9 @@ var _  = require('lodash');
               return _.merge(state, {
                 pane: 'thumbnails'
               });
-            case 'single_content':
+            case 'redirect':
               return _.merge(state, {
-                pane: 'single_content',
+                pane: 'redirect',
                 content_id: action.id
               });
             case 'vote':

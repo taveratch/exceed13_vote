@@ -4,6 +4,7 @@
 	function vm() {
 		return require('./viewmodel');
 	}
+	var event = require('event.service');
 	module.exports = React.createClass({
 		mixins: [TimerMixin],
 		getInitialState: function() {
@@ -12,7 +13,11 @@
 		dispatch: function(action) {
 			this.setState(vm()(this.state, action));
 		},
+		dashboard: function(data) {
+			window.location.href = '/dashboard';
+		},
 		componentDidMount: function() {
+			event.getInstance().on(event.event.auth.redirect, this.dashboard);
 			var self = this;
 			$.get('/api/time', function(data) {
 				var date = new Date(data.remain_time);
@@ -28,6 +33,7 @@
 			}, 1000);
 		},
 		render: function() {
+			var dispatch = _.bind(this.dispatch, this);
 			/* Components */
 			var Image = ReactBootstrap.Image;
 			var Timer = require('./timer/wrapper.jsx');
@@ -74,16 +80,25 @@
 					alert('Go vote');
 				}
 			};
+
+			var view;
+			switch(this.state.pane) {
+				case 'timer':
+					view = <TimerPanel time={this.state.time} formatter={vm().toHHMMSS} />;
+					break;
+				case 'signin':
+					view = <SigninPanel dispatch={dispatch} />;
+					break;
+			}
 			return (
 				<div className="full-height full-width">
 					<div id="first-page" className="full-height full-width center">
-						<NavigationBar/>
+						<NavigationBar user={vm().getUser()} dispatch={dispatch}/>
 						<div class>
 							<div>
 								<img src="/assets/img/logo_inverse.png" className="img-responsive" style={{display: "inline"}}/>
 								<div className="flex-center-x">
-									{/*<TimerPanel time={this.state.time} formatter={vm().toHHMMSS} />*/}
-									<SigninPanel />
+									{ view }
 								</div>
        				</div>
       			</div>

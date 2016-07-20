@@ -4,4 +4,3 @@ window.ReactBootstrap = require('react-bootstrap');
 window._ = require('lodash');
 window.TimerMixin = require('react-timer-mixin');
 var Wrapper = require('../components/router.jsx');
-// var Wrapper = require('../components/index/wrapper.jsx');

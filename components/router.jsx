@@ -6,9 +6,11 @@ var browserHistory = ReactRouter.browserHistory;
 
 var Dashboard = require('./dashboard/wrapper.jsx');
 var AddContent = require('./add-content/wrapper.jsx');
+var Project = require('./dashboard/contents/single-content/wrapper.jsx');
 var Index = require('./index/wrapper.jsx');
 ReactDOM.render((<Router history={browserHistory}>
-    <Route path="/web" component={Index}/>
-    <Route path="/web/dashboard" component={Dashboard}/>
-    <Route path="/web/add" component={AddContent}/>
+    <Route path="/" component={Index} />
+    <Route path="/dashboard" component={Dashboard}/>
+    <Route path="/dashboard/project" component={Project} />
+    <Route path="*" component={Index} />
 </Router>), document.getElementById('container'));

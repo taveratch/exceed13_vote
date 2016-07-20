@@ -1,15 +1,28 @@
 (function () {
 	'use strict';
+	var auth = require('auth.service');
 	var vm = function(state, action) {
     switch(action.type) {
       case 'init':
         return {
+					pane: 'timer',
           time: action.time || 86400
         };
       case 'update':
         return _.merge(state, {
           time: action.time
         });
+			case 'signin':
+				return _.merge(state, {
+					pane: 'signin'
+				});
+			case 'timer':
+				return _.merge(state, {
+					pane: 'timer'
+				});
+			case 'signout':
+				auth.signout();
+				return state;
       default:
         return state;
     }
@@ -41,6 +54,11 @@
     return times;
   }
 
+	function getUser() {
+		return auth.getUser();
+	}
+
   vm.toHHMMSS = toHHMMSS;
+	vm.getUser = getUser;
   module.exports = vm;
 }());

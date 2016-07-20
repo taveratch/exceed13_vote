@@ -34,11 +34,20 @@ html {
     .top-nav-collapse {
         padding: 0;
     }
+    #content-container {
+      padding-left: 20%;
+      padding-right: 20%;
+    }
 }
 
+/*mobile view*/
 @media(max-width:767px) {
   #awards-panel {
     display: none;
+  }
+  #content-container {
+    padding-left: 10%;
+    padding-right: 10%;
   }
 }
 .navbar {
@@ -190,8 +199,9 @@ html {
     padding: 20px;
 }
 .content-wrapper {
-    padding: 10px;
-    margin: 20px;
+    margin-top: 20px;
+    /*padding: 10px;
+    margin: 20px;*/
     /*background-color: white;*/
     /*box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 6px 0 rgba(0, 0, 0, 0.05);*/
 }
@@ -236,8 +246,8 @@ hr {
 }
 .btn-back {
     position: absolute;
-    top: 20px;
-    left: -5%;
+    top: 0;
+    left: 0;
 }
 
 #first-page {
@@ -310,7 +320,7 @@ p.thin {
   color: rgba(107,104,109,0.7);
 }
 
-#content-container {
+#thumbnail-container {
   padding: 20px 35px;
   background-color: white;
 }
@@ -325,6 +335,7 @@ p.thin {
   margin: 10px;
   padding: 10px 80px;
   background-color: rgba(255,255,255,0.17);
+  position: relative;
 }
 
 
@@ -347,4 +358,22 @@ p.thin {
 
 input::-webkit-input-placeholder {
   font-weight: 300;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+#content-container {
+  background: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
