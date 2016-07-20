@@ -32,7 +32,6 @@
 					<div className="full-height" style={{ paddingTop: 50 }}>
 						<div className="full-width" style={{ padding: 15 }}>
             <div id="content-container" className="full-width">
-              {/*<Col md={9} mdOffset={1} sm={10} smOffset={1}>*/}
                 <div className="full-width center" style={{position: 'relative'}}>
                   <img onClick={this.back} style={{
                     cursor: "pointer"
@@ -41,11 +40,12 @@
                   <p>{this.state.group.group_name}</p>
                   <img src={this.state.image_url} className="img-responsive"/>
                 </div>
-                {this.state.content.map(function(result, i) {
-                  return <ContentBox {...result}/>;
-                })
+                {
+                  this.state.content.map(function(result, i) {
+                    return <ContentBox {...result}/>;
+                  })
                 }
-              {/*</Col>*/}
+                <VoteBox projectId={this.state._id}/>
             </div>
 						</div>
 					</div>

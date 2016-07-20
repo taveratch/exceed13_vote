@@ -1,0 +1,28 @@
+"projects": [
+    {
+      "_id": "578b3cef8c1d44550238cc0b",
+      "name": "abc",
+      "image_url": "http://google.co.th",
+      "group": {
+        "_id": "5780daf299aec131560a1575",
+        "group_name": "ceedX"
+      },
+      "__v": 0,
+      "content": [
+        {
+          "header": "this is header",
+          "desc": "this is desc"
+        },
+        {
+          "header": "this is header2",
+          "desc": "this is desc2"
+        }
+      ],
+      "vote": {
+        "best_of_hardware": true,
+        "best_of_software": false,
+        "popular": true,
+        "top_rated": true
+      }
+    }
+]

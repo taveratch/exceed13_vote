@@ -2,7 +2,7 @@
   'use strict';
     module.exports = React.createClass({
       render: function() {
-        var texts = require('../../dashboard/text.js');
+        var texts = require('text');
         /* Components */
         var Col = ReactBootstrap.Col;
         var Row = ReactBootstrap.Row;
@@ -11,12 +11,12 @@
           <div className="full-width full-height middle-vertical-parent">
             <Row className="middle-vertical-child">
               {
-                texts.vote.map(function(result, i) {
+                texts.map(function(result, i) {
                   return (
                     <Col sm={3} md={3}>
-                      <Award src={texts.vote_icon[i]}>
-                        <p>{texts.vote[i]}</p>
-                        <p className="thin">{texts.vote_desc[i]}</p>
+                      <Award src={result.icon}>
+                        <p>{result.header}</p>
+                        <p className="thin">{result.desc}</p>
                       </Award>
                     </Col>
                   );

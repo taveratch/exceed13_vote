@@ -49,6 +49,14 @@ html {
     padding-left: 10%;
     padding-right: 10%;
   }
+  .vote-item-container {
+    display: inline-block !important;
+    width: 100%;
+  }
+  .score-container {
+    margin-top: 10px;
+    margin-left: 0px !important;
+  }
 }
 .navbar {
     background-repeat: no-repeat;
@@ -302,7 +310,7 @@ hr {
   background: #F5F5F5;
 }
 
-p.thin {
+.thin {
   font-weight: 300;
 }
 
@@ -376,4 +384,27 @@ input::-webkit-input-placeholder {
   background: white;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.score {
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  border-radius: 3000px;
+  display: inline-flex;
+}
+.score-normal {
+  background-color: #DDDDDD;
+  transition: 0.2s;
+  color: black;
+}
+
+.score-selected {
+  background-color: #64DDBB;
+  transition: 0.2s;
+  color: white;
+}
+
+.no-margin {
+  margin: 0px;
 }
