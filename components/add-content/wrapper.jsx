@@ -1,13 +1,16 @@
-var React = require('react');
 (function() {
   'use strict';
-
+      var reducers = require('./reducers');
+      var store = createStore(reducers);
+      var auth = require('auth.service');
       module.exports = React.createClass({
         render: function() {
+          /* Components */
+          var App = require('./containers/wrapper.jsx');
           return (
-            <div>
-              Add Content
-            </div>
+            <Provider store={store}>
+              <App />
+            </Provider>
           );
         }
       });

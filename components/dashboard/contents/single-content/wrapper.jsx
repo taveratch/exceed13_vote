@@ -23,7 +23,7 @@
 			/* Components */
 			var ContentBox = require('./content-box.jsx');
 			var VoteBox = require('../vote-box/wrapper.jsx');
-			var Navbar = require('../../nav-bar/NavigationBar.jsx');
+			var Navbar = require('../../../nav-bar/NavigationBar.jsx');
 			var Col = ReactBootstrap.Col;
 			/* JSX */
 			return (
@@ -31,7 +31,7 @@
 					<Navbar/>
 					<div className="full-height" style={{ paddingTop: 50 }}>
 						<div className="full-width" style={{ padding: 15 }}>
-            <div id="content-container" className="full-width">
+              <div id="content-container" className="full-width">
                 <div className="full-width center" style={{position: 'relative'}}>
                   <img onClick={this.back} style={{
                     cursor: "pointer"
@@ -46,7 +46,7 @@
                   })
                 }
                 <VoteBox projectId={this.state._id}/>
-            </div>
+              </div>
 						</div>
 					</div>
 				</div>
@@ -54,7 +54,3 @@
 		},
 	});
 }());
-
-var Wrapper = require('./wrapper.jsx');
-ReactDOM.render(
-	<Wrapper/>, document.getElementById('container'));

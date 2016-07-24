@@ -21,7 +21,6 @@
 			event.getInstance().on(event.event.auth.signin, this.updateUser);
 			event.getInstance().on(event.event.contents.update, this.updateContents);
 			require('project.service').getContents();
-			// require('auth.service').login("b5710501531", "1q2w3e4r");
 		},
 		componentWillUnmount: function() {
 			event.getInstance().off(event.event.auth.signin, this.updateUser);
@@ -31,20 +30,8 @@
 			/* Functions */
 			var dispatch = _.bind(this.dispatch, this);
 			/* Components */
-			var NavBar = require('./nav-bar/NavigationBar.jsx');
-			var UserPanel = require('./user-panel/wrapper.jsx');
-			var CircularProgressBar = require('./circular-progressbar/wrapper.jsx');
+			var NavBar = require('../nav-bar/NavigationBar.jsx');
 			var Thumbnails = require('./contents/thumbnails/wrapper.jsx');
-			// var SingleContent = require('./contents/single-content/wrapper.jsx');
-			var Col = ReactBootstrap.Col;
-			// var contentView;
-			// switch (this.state.pane) {
-			// 	case 'thumbnails':
-			// 		contentView = <Thumbnails dispatch={dispatch} contents={this.state.contents}/>;
-			// 		break;
-			// 	case 'single_content':
-			// 		contentView = <SingleContent dispatch={dispatch} content={this.state.contents[this.state.content_id]}/>;
-			// }
 			return (
 				<div className="full-height">
 					<NavBar />
@@ -66,5 +53,5 @@
 
 }());
 
-var Wrapper = require('./wrapper.jsx');
-ReactDOM.render(<Wrapper />, document.getElementById('container'));
+// var Wrapper = require('./wrapper.jsx');
+// ReactDOM.render(<Wrapper />, document.getElementById('container'));

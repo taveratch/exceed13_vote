@@ -30,12 +30,12 @@ var Rb = require('react-bootstrap');
 							},
 						};
 						return (
-							<Col xs={6} md={3} sm={4} className="no-padding">
+							<Col xs={12} md={3} sm={4} className="no-padding">
 								<ProjectThumbnail dispatch={self.props.dispatch} {...props}/>
 							</Col>
 						);
 					})
-}
+          }
 				</div>
 			);
 		},

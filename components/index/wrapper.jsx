@@ -7,6 +7,9 @@
 	var event = require('event.service');
 	module.exports = React.createClass({
 		mixins: [TimerMixin],
+		contextTypes: {
+			router: React.PropTypes.object.isRequired
+		},
 		getInitialState: function() {
 			return vm()({}, {type: 'init'});
 		},
@@ -23,17 +26,18 @@
 				var date = new Date(data.remain_time);
 				var now = new Date();
 				var diff = (date.getTime() - now.getTime()) / 1000;
-				self.dispatch({type: 'update', time: diff});
+				self.dispatch({type: 'update', time: diff,});
 			});
 			this.setInterval(function() {
 				self.dispatch({
 					type: 'update',
-					time: self.state.time - 1
+					time: self.state.time - 1,
 				});
 			}, 1000);
 		},
 		render: function() {
 			var dispatch = _.bind(this.dispatch, this);
+      var self = this;
 			/* Components */
 			var Image = ReactBootstrap.Image;
 			var Timer = require('./timer/wrapper.jsx');
@@ -52,7 +56,7 @@
 				btnDisabled: false,
 				onClick: function() {
 					alert('Go signin');
-				}
+				},
 			};
 
 			var timelineProjDocProps = {
@@ -66,8 +70,10 @@
 				btnText: 'Go',
 				btnDisabled: false,
 				onClick: function() {
-					alert('Go complete document');
-				}
+          self.context.router.push({
+            pathname: '/add'
+          });
+				},
 			};
 
 			var timelineVoteProps = {
@@ -77,35 +83,39 @@
 				btnText: 'Go',
 				btnDisabled: false,
 				onClick: function() {
-					alert('Go vote');
-				}
+          self.context.router.push({
+            pathname: '/dashboard'
+          });
+				},
 			};
 
 			var view;
-			switch(this.state.pane) {
+			switch (this.state.pane) {
 				case 'timer':
-					view = <TimerPanel time={this.state.time} formatter={vm().toHHMMSS} />;
+					view = <TimerPanel time={this.state.time} formatter={vm().toHHMMSS}/>;
 					break;
 				case 'signin':
-					view = <SigninPanel dispatch={dispatch} />;
+					view = <SigninPanel dispatch={dispatch}/>;
 					break;
 			}
 			return (
 				<div className="full-height full-width">
 					<div id="first-page" className="full-height full-width center">
 						<NavigationBar user={vm().getUser()} dispatch={dispatch}/>
-						<div class>
+						<div>
 							<div>
-								<img src="/assets/img/logo_inverse.png" className="img-responsive" style={{display: "inline"}}/>
+								<img src="/assets/img/logo_inverse.png" className="img-responsive" style={{
+									display: "inline"
+								}}/>
 								<div className="flex-center-x">
-									{ view }
+									{view}
 								</div>
-       				</div>
-      			</div>
+							</div>
+						</div>
 						<div id="awards-panel" className="full-width" style={{
 							height: "20%",
 							bottom: 0,
-							position: "absolute"
+							position: "absolute",
 						}}>
 							<AwardsPanel/>
 						</div>
@@ -115,29 +125,23 @@
 							height: "33%"
 						}}>
 							{/*<Col lgOffset={3} mdOffset={3} smOffset={2} xsOffset={1}>*/}
-								<TimelineItem {...timelineSigninProp}/>
-							{/*</Col>*/}
+							<TimelineItem {...timelineSigninProp}/> {/*</Col>*/}
 						</div>
 						<div className="flex-center-y" style={{
 							height: "33%"
 						}}>
 							{/*<Col lgOffset={3} mdOffset={3} smOffset={2} xsOffset={1}>*/}
-								<TimelineItem {...timelineProjDocProps}/>
-							{/*</Col>*/}
+							<TimelineItem {...timelineProjDocProps}/> {/*</Col>*/}
 						</div>
 						<div className="flex-center-y alt" style={{
 							height: "33%"
 						}}>
 							{/*<Col lgOffset={3} mdOffset={3} smOffset={2} xsOffset={1}>*/}
-								<TimelineItem {...timelineVoteProps}/>
-							{/*</Col>*/}
+							<TimelineItem {...timelineVoteProps}/> {/*</Col>*/}
 						</div>
 					</div>
 				</div>
 			);
-		}
+		},
 	});
 }());
-
-var Wrapper = require('./wrapper.jsx');
-ReactDOM.render(<Wrapper />, document.getElementById('container'));
