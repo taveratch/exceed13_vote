@@ -13,11 +13,11 @@
 				view = (
 					<div>
      				<span>{this.props.user.username}&nbsp;&nbsp;&nbsp;&nbsp;</span>
-						<span onClick={this.signout} style={{color: 'white'}}>Sign out</span>
+						<button className="btn-border" onClick={this.signout} style={{color: 'white'}}>Sign out</button>
      			</div>
 				);
 			}else {
-				view = <p onClick={this.handleClick}>Sign in</p>;
+				view = <button className="btn-border" onClick={this.handleClick}>Sign in</button>;
 			}
 			return (
         <div className="full-width" style={{height: 50, display: "flex", alignItems: "center", justifyContent: "flex-end"}}>

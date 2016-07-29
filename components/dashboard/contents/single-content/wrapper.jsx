@@ -27,7 +27,9 @@
                 <div className="full-width center" style={{position: 'relative'}}>
                   <p style={{fontSize: "1.7em"}}>{this.state.name}</p>
                   <p>{this.state.group.group_name}</p>
-                  <img src={this.state.image_url} className="img-responsive"/>
+                  <div className="flex-center-x">
+                    <img src={this.state.image_url} className="img-responsive"/>
+                  </div>
                 </div>
                 {
                   this.state.content.map(function(result, i) {

@@ -3,37 +3,40 @@
     var auth = require('auth.service');
     var http = require('http.service');
     var id = 1;
-    var initialState = {
-      user: auth.getUser(),
-      name: '',
-      image_url: 'a',
-      content: [
-        {
-          disabled: true,
-          id: id++,
-          header: 'What is it?',
-          desc: ''
-        },
-        {
-          disabled: true,
-          id: id++,
-          header: 'How does it work?',
-          desc: ''
-        },
-        {
-          disabled: true,
-          id: id++,
-          header: 'Hardware features',
-          desc: ''
-        },
-        {
-          disabled: true,
-          id: id++,
-          header: 'Software features',
-          desc: ''
-        }
-      ]
-    };
+    function initialState() {
+      return {
+        isUpdate: false,
+        user: auth.getUser(),
+        name: '',
+        image_url: 'a',
+        content: [
+          {
+            disabled: true,
+            id: id++,
+            header: 'What is it?',
+            desc: ''
+          },
+          {
+            disabled: true,
+            id: id++,
+            header: 'How does it work?',
+            desc: ''
+          },
+          {
+            disabled: true,
+            id: id++,
+            header: 'Hardware features',
+            desc: ''
+          },
+          {
+            disabled: true,
+            id: id++,
+            header: 'Software features',
+            desc: ''
+          }
+        ]
+      };
+    }
     var types = require('../constants');
     function changeContent(contents, index, content) {
       _.merge(contents[index], content);
@@ -49,12 +52,14 @@
         desc: ''
       };
     }
-    function formatter(state) {
-      var content = _.map(state.content, 'header');
+    function formatterCreate(state) {
       return _.pick(state, ['name','content', 'image_url']);
     }
+    function formatterUpdate(state) {
+      return _.pick(state, ['name','content', 'image_url', 'project_id']);
+    }
     var Reducer = function(state, action) {
-      state = typeof state !== 'undefined' ? state : initialState;
+      state = typeof state !== 'undefined' ? state : initialState();
       var newState = _.merge({},state);
       switch(action.type) {
         case types.INIT:
@@ -63,10 +68,12 @@
             var projects = data.projects;
             var project = _.filter(projects, function(p){ return p.group.group_name === state.user.group; });
             if(project.length > 0){
-              action.callback(_.pick(project[0], ['name', 'image_url', 'content' ]));
+              action.callback(_.pick(project[0], ['name', 'image_url', 'content', '_id' ]));
             }
           });
           return state;
+        case types.RESET:
+          return _.merge({},initialState());
         case types.CALLBACK:
           var content = [];
           action.data.content.map(function(result,i) {
@@ -77,8 +84,10 @@
           });
           var a = _.merge(newState,
             {
+              isUpdate: true,
               name: action.data.name,
               image_url: action.data.image_url,
+              project_id: action.data._id,
               content: content
             }
           );
@@ -101,12 +110,23 @@
             content: newState.content.concat([newContent])
           });
         case types.SUBMIT:
-        console.log(JSON.stringify(formatter(state)));
-          http.post('http://128.199.135.164:8080/api/project',formatter(state))
-          .success(function(data) {
-            console.log(data);
-          });
+          if(state.isUpdate) {
+            http.put('http://128.199.135.164:8080/api/project', formatterUpdate(state))
+            .success(function(data) {
+              console.log('update project docs success');
+              console.log(data);
+            });
+          }else{
+            http.post('http://128.199.135.164:8080/api/project',formatterCreate(state))
+            .success(function(data) {
+              console.log(data);
+            });
+          }
           return state;
+        case types.UPDATE_IMAGE_URL:
+          return _.merge(newState, {
+            image_url: action.image_url
+          });
         default:
           return state;
       }

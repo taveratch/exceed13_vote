@@ -18,7 +18,6 @@
     		var Nav = ReactBootstrap.Nav;
     		var NavItem = ReactBootstrap.NavItem;
     		var Profile = require('./profile/profile.jsx');
-    		var Signin = require('./profile/signin.jsx');
     		var Image = ReactBootstrap.Image;
     		return (
     			<Navbar fixedTop={true}>

@@ -3,6 +3,7 @@
   var bindActionCreators = Redux.bindActionCreators;
   var actions = require('../actions');
   var http = require('http.service');
+  var key=1;
   var mapStateToProps = function(state) {
     return {reducer: state};
   };
@@ -10,6 +11,10 @@
     return bindActionCreators(actions, dispatch);
   };
 	var Wrapper = React.createClass({
+    getInitialState: function() {
+      this.props.reset();
+      return {};
+    },
 		componentDidMount: function() {
 			$('html').css({'height': "auto"});
       this.props.init(this.props.callback);
@@ -17,9 +22,11 @@
 		componentWillUnmount: function() {
 			$('html').css({'height': "100%"});
 		},
-    updateProjectName: function() {
-      var name = this.refs['project-name'].value;
-      this.props.updateProjectName(name);
+    updateProjectName: function(ele) {
+      this.props.updateProjectName(ele.target.value);
+    },
+    updateImageUrl: function(ele) {
+      this.props.updateImageUrl(ele.target.value);
     },
     submit: function() {
       this.props.submit();
@@ -32,8 +39,6 @@
       var InputField = require('./input_field.jsx');
       var Row = ReactBootstrap.Row;
       var Col = ReactBootstrap.Col;
-      console.log('content');
-      console.log(this.props.reducer.content);
 			return (
 				<div className="full-height">
 					<Navbar/>
@@ -44,22 +49,11 @@
 							padding: 15
 						}}>
 							<div id="content-container" className="full-width">
-                <div>
-                  <span>Group name</span>
-                  <input
-                    className="center form-control"
-                    disabled
-                    defaultValue={this.props.reducer.user.group}/>
-                </div>
+                <InputField header="Group name" disabled value={this.props.reducer.user.group} />
                 <br></br>
-                <div>
-                  <span>Project name</span>
-                  <input onChange={this.updateProjectName}
-                    ref="project-name"
-                    className="center form-control"
-                    value={this.props.reducer.name}
-                    placeholder="Enter project name"/>
-                </div>
+                <InputField key={key++} header="Project name" onChange={this.updateProjectName} value={this.props.reducer.name} placeholder="Enter project name"/>
+                <br></br>
+                <InputField key={key++} header="Image url" onChange={this.updateImageUrl} value={this.props.reducer.image_url} placeholder="Enter image url" />
 								{
                   this.props.reducer.content.map(function(item, i) {
                     return <ContentBox key={item.id} id={item.id} header={item.header} desc={item.desc} disabled={item.disabled}/>;

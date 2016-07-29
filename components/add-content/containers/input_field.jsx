@@ -3,6 +3,7 @@
     var Wrapper = React.createClass({
       render: function() {
         /* Components */
+        console.log(this.props.value);
   			var FormControl = ReactBootstrap.FormControl;
         return (
           <div>

@@ -13,3 +13,9 @@ html,body {
 .pull-right {
   right: 0;
 }
+
+.btn-border {
+  border-radius: 4px;
+  background-color: transparent;
+  border: white;
+}

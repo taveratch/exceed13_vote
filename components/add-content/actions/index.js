@@ -2,6 +2,11 @@
   'use strict';
     var types = require('../constants');
     var Actions = {
+      reset: function() {
+        return {
+          type: types.RESET
+        };
+      },
       init: function(callback) {
         return {
           type: types.INIT,
@@ -43,6 +48,12 @@
         return {
           type: types.UPDATE_PROJECT_NAME,
           projectName: name
+        };
+      },
+      updateImageUrl: function(url) {
+        return {
+          type: types.UPDATE_IMAGE_URL,
+          image_url: url
         };
       }
     };
