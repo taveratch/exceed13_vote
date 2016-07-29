@@ -6,7 +6,7 @@
     var initialState = {
       user: auth.getUser(),
       name: '',
-      image_url: '',
+      image_url: 'a',
       content: [
         {
           disabled: true,
