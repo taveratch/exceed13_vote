@@ -13,7 +13,7 @@
               {
                 texts.map(function(result, i) {
                   return (
-                    <Col sm={3} md={3}>
+                    <Col sm={4} md={4}>
                       <Award src={result.icon}>
                         <p>{result.header}</p>
                         <p className="thin">{result.desc}</p>

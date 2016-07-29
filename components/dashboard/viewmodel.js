@@ -46,6 +46,10 @@ var cookie = require('js-cookie');
               }
               state.user.percent = percentCalulator(state.vote);
               return state;
+            case 'update_comments':
+              return _.merge(state, {
+                comments: action.data
+              });
             default:
               return state;
         }

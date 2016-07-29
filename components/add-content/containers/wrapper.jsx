@@ -2,8 +2,6 @@
 	'use strict';
   var bindActionCreators = Redux.bindActionCreators;
   var actions = require('../actions');
-  var http = require('http.service');
-  var key=1;
   var mapStateToProps = function(state) {
     return {reducer: state};
   };
@@ -22,23 +20,32 @@
 		componentWillUnmount: function() {
 			$('html').css({'height': "100%"});
 		},
-    updateProjectName: function(ele) {
-      this.props.updateProjectName(ele.target.value);
-    },
-    updateImageUrl: function(ele) {
-      this.props.updateImageUrl(ele.target.value);
-    },
     submit: function() {
       this.props.submit();
+    },
+    preview: function() {
+      this.props.preview();
+    },
+    normal: function() {
+      this.props.normal();
     },
 		render: function() {
 			/* Components */
 			var Navbar = require('../../nav-bar/NavigationBar.jsx');
-			var ContentBox = require('../content-box/wrapper.jsx');
-      var DummyBox = require('../content-box/dummy.jsx');
-      var InputField = require('./input_field.jsx');
       var Row = ReactBootstrap.Row;
       var Col = ReactBootstrap.Col;
+      var Form = require('./form.jsx');
+      var Preview = require('./preview.jsx');
+      var view;
+      var previewButtonView;
+      if(!this.props.reducer.isPreview){
+        view = <Form />;
+        previewButtonView = <span onClick={this.preview} className="btn-vote btn-blue">Preview</span>;
+      }else {
+        view = <Preview />;
+        previewButtonView = <span onClick={this.normal} className="btn-vote btn-blue">Close preview</span>;
+      }
+
 			return (
 				<div className="full-height">
 					<Navbar/>
@@ -49,21 +56,11 @@
 							padding: 15
 						}}>
 							<div id="content-container" className="full-width">
-                <InputField header="Group name" disabled value={this.props.reducer.user.group} />
-                <br></br>
-                <InputField key={key++} header="Project name" onChange={this.updateProjectName} value={this.props.reducer.name} placeholder="Enter project name"/>
-                <br></br>
-                <InputField key={key++} header="Image url" onChange={this.updateImageUrl} value={this.props.reducer.image_url} placeholder="Enter image url" />
-								{
-                  this.props.reducer.content.map(function(item, i) {
-                    return <ContentBox key={item.id} id={item.id} header={item.header} desc={item.desc} disabled={item.disabled}/>;
-                  })
-                }
-                <DummyBox />
+                { view }
                 <Row className="flex-center-x" style= {{marginTop: 20}}>
-                  <span onClick={this.submit} className="btn-vote">Done</span>
+                  { previewButtonView }
+                  <span style={{marginLeft: 10}} onClick={this.submit} className="btn-vote">Done</span>
                 </Row>
-
 							</div>
 						</div>
 					</div>

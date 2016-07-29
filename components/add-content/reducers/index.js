@@ -9,6 +9,7 @@
         user: auth.getUser(),
         name: '',
         image_url: 'a',
+        isPreview: false,
         content: [
           {
             disabled: true,
@@ -126,6 +127,14 @@
         case types.UPDATE_IMAGE_URL:
           return _.merge(newState, {
             image_url: action.image_url
+          });
+        case types.PREVIEW:
+          return _.merge(newState, {
+            isPreview: true
+          });
+        case types.NORMAL:
+          return _.merge(newState, {
+            isPreview: false
           });
         default:
           return state;

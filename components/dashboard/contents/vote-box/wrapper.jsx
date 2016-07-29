@@ -31,6 +31,8 @@ var Rb = require('react-bootstrap');
 			var text = require('text');
 			var Col = Rb.Col;
 			var Row = Rb.Row;
+      var awards = ['best_of_hardware', 'best_of_software', 'popular'];
+      console.log(this.props.checker);
 			/* JSX */
 			return (
 				<div className="full-width content-wrapper">
@@ -39,7 +41,12 @@ var Rb = require('react-bootstrap');
 						<hr></hr>
 						<p>Tap on icon to vote (You can have more than 1 vote)</p>
 						{text.map(function(result, i) {
-							return (<VoteItem {...result} i={i}/>);
+              if(self.props.checker[awards[i]]){
+                return (<VoteItem {...result} i={i}/>);
+              }
+              else{
+                return;
+              }
 						})
             }
 						<div className="full-width center" style={{

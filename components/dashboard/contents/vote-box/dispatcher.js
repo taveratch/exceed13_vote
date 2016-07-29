@@ -6,7 +6,6 @@
     Dispatcher.register(function(payload) {
       var type = payload.type;
       var key = payload.data.key;
-      console.log(payload);
       switch(type) {
         case 'update':
           var data = {};
@@ -16,8 +15,6 @@
             data.best_of_software = payload.data.score;
           }else if(key === 2) {
             data.popular = payload.data.score;
-          }else if(key === 3) {
-            data.top_rated = payload.data.score;
           }
           Store.update(data);
           break;

@@ -1,15 +1,26 @@
 (function() {
 	'use strict';
   function vm() { return require('./viewmodel'); }
+  var eventEmitter = require('event.service.js');
+  var projectService = require('project.service');
 	module.exports = React.createClass({
 		getInitialState: function() {
       return vm()({},{type: 'init', data: this.props.location});
     },
+    dispatch: function(action) {
+      this.setState(vm()(this.state, action));
+    },
+    voteCheck: function(data) {
+      this.dispatch({ type: 'update_vote_check', data: data });
+    },
     componentDidMount: function() {
       $('html').css({'height': "auto"});
+      projectService.voteCheck(this.state._id);
+      eventEmitter.getInstance().on(eventEmitter.event.project.voteCheck, this.voteCheck);
     },
     componentWillUnmount: function() {
       $('html').css({'height': "100%"});
+      eventEmitter.getInstance().off(eventEmitter.event.project.voteCheck, this.voteCheck);
     },
 		render: function() {
 			/* Components */
@@ -36,7 +47,7 @@
                     return <ContentBox {...result}/>;
                   })
                 }
-                <VoteBox projectId={this.state._id}/>
+                <VoteBox checker={this.state.voteChecker} projectId={this.state._id}/>
               </div>
 						</div>
 					</div>

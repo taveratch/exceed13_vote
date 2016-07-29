@@ -53,7 +53,7 @@ app.post("/api/login", function (req, res) {
 
 
 
-app.listen(port, '192.168.1.39', function (error) {
+app.listen(port, function (error) {
 	if (error) {
 		console.error(error);
 	} else {

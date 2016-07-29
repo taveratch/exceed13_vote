@@ -11,12 +11,27 @@
                 group_name: ''
               },
               image_url: '',
-              content: []
+              content: [],
+              voteChecker: {
+                best_of_hardware: true,
+                best_of_software: false,
+                popular: false
+              }
             };
           } else {
-            return action.data.state.project;
+            return _.merge(action.data.state.project, {
+              voteChecker: {
+                best_of_hardware: true,
+                best_of_software: false,
+                popular: false
+              }
+            });
           }
           break;
+        case 'update_vote_check':
+          return _.merge({},state,{
+            voteChecker: _.pick(action.data, ['best_of_hardware', 'best_of_software', 'popular'])
+          });
         default:
           return state;
       }

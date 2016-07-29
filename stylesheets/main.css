@@ -250,9 +250,9 @@ hr {
 }
 .btn-vote {
     background-color: #E482CB;
-    padding: 5px 55px;
+    padding: 5px 35px;
     color: white;
-    border-radius: 4000px;
+    border-radius: 10px;
     cursor: pointer;
 }
 .btn-vote:hover {
@@ -391,7 +391,7 @@ input::-webkit-input-placeholder {
     margin: 0px;
 }
 .shadow {
-    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.05), 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.05), 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
 }
 .text-area {
     height: 300px !important;
@@ -403,4 +403,17 @@ input::-webkit-input-placeholder {
   border-style: solid;
   border-width: 1px;
   border-color: white;
+}
+
+.img-preview {
+  box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.05), 1px 1px 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.btn-blue {
+  background-color: #12BED2;
+}
+
+.btn-blue:hover {
+  background-color: #7ECFD9;
+  transition: 0.5s;
 }

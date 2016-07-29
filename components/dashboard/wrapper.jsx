@@ -12,19 +12,24 @@
       this.setState(vm(this.state, action));
 		},
 		updateUser: function(data) {
-			this.dispatch({type: 'update_user', data: data,});
+			this.dispatch({type: 'update_user', data: data});
 		},
 		updateContents: function(data) {
-			this.dispatch({type: 'update_contents', data: data,});
+			this.dispatch({type: 'update_contents', data: data});
 		},
+    updateComments: function(data) {
+      this.dispatch({type: 'update_comments', data: data});
+    },
 		componentDidMount: function() {
 			event.getInstance().on(event.event.auth.signin, this.updateUser);
 			event.getInstance().on(event.event.contents.update, this.updateContents);
+			event.getInstance().on(event.event.comments.update, this.updateComments);
 			require('project.service').getContents();
 		},
 		componentWillUnmount: function() {
 			event.getInstance().off(event.event.auth.signin, this.updateUser);
 			event.getInstance().off(event.event.contents.update, this.updateContents);
+			event.getInstance().off(event.event.comments.update, this.updateComments);
 		},
 		render: function() {
 			/* Functions */

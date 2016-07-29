@@ -55,6 +55,16 @@
           type: types.UPDATE_IMAGE_URL,
           image_url: url
         };
+      },
+      preview: function() {
+        return {
+          type: types.PREVIEW
+        };
+      },
+      normal: function() {
+        return {
+          type: types.NORMAL
+        };
       }
     };
     module.exports = Actions;
