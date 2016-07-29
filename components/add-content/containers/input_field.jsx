@@ -7,7 +7,7 @@
         return (
           <div>
             <span>{this.props.header}</span>
-            <FormControl className="center" disabled={this.props.disable || false} ref="group-name" defaultValue={this.props.value || ''} placeholder={this.props.placeholder || ''}/>
+            <input onChange={this.props.onChange} className="center form-control" disabled={this.props.disable || false} defaultValue={this.props.value || ''} placeholder={this.props.placeholder || ''}/>
           </div>
         );
       }
