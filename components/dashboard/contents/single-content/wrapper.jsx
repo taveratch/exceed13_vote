@@ -10,24 +10,46 @@
     dispatch: function(action) {
       this.setState(vm()(this.state, action));
     },
+    updateComments: function(data) {
+      this.dispatch({ type: 'update_comments', data: data });
+    },
     voteCheck: function(data) {
       this.dispatch({ type: 'update_vote_check', data: data });
     },
     componentDidMount: function() {
       $('html').css({'height': "auto"});
       projectService.voteCheck(this.state._id);
+      projectService.getComments(this.state.group.group_name,this.state._id);
       eventEmitter.getInstance().on(eventEmitter.event.project.voteCheck, this.voteCheck);
+			eventEmitter.getInstance().on(eventEmitter.event.comments.update, this.updateComments);
     },
     componentWillUnmount: function() {
       $('html').css({'height': "100%"});
       eventEmitter.getInstance().off(eventEmitter.event.project.voteCheck, this.voteCheck);
+			eventEmitter.getInstance().off(eventEmitter.event.comments.update, this.updateComments);
+    },
+    isShowVoteBox: function() {
+      var isShow = false;
+      _.values(this.state.voteChecker).map(function(result, i) {
+        isShow = isShow || result;
+      });
+      return isShow;
     },
 		render: function() {
 			/* Components */
 			var ContentBox = require('./content-box.jsx');
 			var VoteBox = require('../vote-box/wrapper.jsx');
 			var Navbar = require('../../../nav-bar/NavigationBar.jsx');
+      var Comments = require('../comments/wrapper.jsx');
 			var Col = ReactBootstrap.Col;
+      var voteBoxView;
+      if(this.isShowVoteBox()){
+        voteBoxView = <VoteBox checker={this.state.voteChecker} projectId={this.state._id}/>;
+      }
+      var commentView;
+      if(!_.isEmpty(this.state.comments)){
+        commentView = <Comments comments={this.state.comments}/>;
+      }
 			/* JSX */
 			return (
 				<div className="full-height">
@@ -47,7 +69,12 @@
                     return <ContentBox {...result}/>;
                   })
                 }
-                <VoteBox checker={this.state.voteChecker} projectId={this.state._id}/>
+                {
+                  voteBoxView
+                }
+                {
+                  commentView
+                }
               </div>
 						</div>
 					</div>
