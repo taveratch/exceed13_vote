@@ -65,7 +65,7 @@
       switch(action.type) {
         case types.INIT:
           http.get('http://128.199.135.164:8080/api/project')
-          .success(function(data) {
+          .done(function(data) {
             var projects = data.projects;
             var project = _.filter(projects, function(p){ return p.group.group_name === state.user.group; });
             if(project.length > 0){
@@ -113,13 +113,13 @@
         case types.SUBMIT:
           if(state.isUpdate) {
             http.put('http://128.199.135.164:8080/api/project', formatterUpdate(state))
-            .success(function(data) {
+            .done(function(data) {
               console.log('update project docs success');
               console.log(data);
             });
           }else{
             http.post('http://128.199.135.164:8080/api/project',formatterCreate(state))
-            .success(function(data) {
+            .done(function(data) {
               console.log(data);
             });
           }

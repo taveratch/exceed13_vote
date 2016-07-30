@@ -9,7 +9,7 @@
 				<div>
 					<p style={{
 						fontSize: "1.5em"
-					}}>eXceed vote will be closed in</p>
+					}}>{this.props.message}</p>
 					<Timer time={this.props.time} formatter={this.props.formatter}/>
 				</div>
 			);

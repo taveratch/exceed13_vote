@@ -10,7 +10,8 @@
         };
       case 'update':
         return _.merge(state, {
-          time: action.time
+          time: action.time,
+          message: action.message
         });
 			case 'signin':
 				return _.merge(state, {

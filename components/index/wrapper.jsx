@@ -5,6 +5,8 @@
 		return require('./viewmodel');
 	}
 	var event = require('event.service');
+  var http = require('http.service');
+  var constants = require('constants.service');
 	module.exports = React.createClass({
 		mixins: [TimerMixin],
 		contextTypes: {
@@ -22,12 +24,13 @@
 		componentDidMount: function() {
 			event.getInstance().on(event.event.auth.redirect, this.dashboard);
 			var self = this;
-			$.get('/api/time', function(data) {
-				var date = new Date(data.remain_time);
+      http.get(constants.url + '/api/time')
+      .done(function(data) {
+        var date = new Date(data.remain_time);
 				var now = new Date();
 				var diff = (date.getTime() - now.getTime()) / 1000;
-				self.dispatch({type: 'update', time: diff,});
-			});
+				self.dispatch({type: 'update', time: diff, message: data.message});
+      });
 			this.setInterval(function() {
 				self.dispatch({
 					type: 'update',
@@ -92,7 +95,7 @@
 			var view;
 			switch (this.state.pane) {
 				case 'timer':
-					view = <TimerPanel time={this.state.time} formatter={vm().toHHMMSS}/>;
+					view = <TimerPanel time={this.state.time} message={this.state.message} formatter={vm().toHHMMSS}/>;
 					break;
 				case 'signin':
 					view = <SigninPanel dispatch={dispatch}/>;
