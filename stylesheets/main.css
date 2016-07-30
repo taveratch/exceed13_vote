@@ -252,7 +252,8 @@ hr {
     background-color: #E482CB;
     padding: 5px 35px;
     color: white;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: 0px;
     cursor: pointer;
 }
 .btn-vote:hover {
@@ -416,4 +417,19 @@ input::-webkit-input-placeholder {
 .btn-blue:hover {
   background-color: #7ECFD9;
   transition: 0.5s;
+}
+
+.pull-right {
+  position: absolute;
+  right:0;
+}
+
+.score-text {
+  font-size: 2em;
+  color: #12BED2;
+}
+
+.btn-done {
+  background-color: #64DDBB !important;
+  transition: 1s !important;
 }

@@ -2,21 +2,25 @@
   'use strict';
     var EventEmitter = require('events').EventEmitter;
     var Store = new EventEmitter();
-    var data;
+    var state;
     Store.init = function() {
-      data = {
-        best_of_hardware: -1,
-        best_of_software: -1,
-        popular: -1,
-        top_rated: -1
+      state = {
+        data: {
+          best_of_hardware: -1,
+          best_of_software: -1,
+          popular: -1
+        },
+        modalShow: false,
+        serverFormat: [],
+        buttonEnable: false
       };
     };
     Store.getState = function() {
-      return data;
+      console.log(state);
+      return state;
     };
     Store.update = function(payload) {
-      console.log(payload);
-      _.merge(data, payload);
+      _.merge(state, payload);
     };
     Store.addChangeListener = function(callback) {
       this.on('update', callback);
