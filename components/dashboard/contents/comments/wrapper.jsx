@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-    var vm = require('./viewmodel');
     var Wrapper = React.createClass({
       render: function() {
         /* Components */
