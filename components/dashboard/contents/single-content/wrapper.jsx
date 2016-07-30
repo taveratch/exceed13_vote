@@ -17,6 +17,7 @@
       this.dispatch({ type: 'update_vote_check', data: data });
     },
     getComment: function() {
+      console.log('get comment');
       projectService.getComments(this.state.group.group_name,this.state._id);
     },
     componentDidMount: function() {
@@ -52,7 +53,7 @@
       }
       var commentView;
       if(!_.isEmpty(this.state.comments) || user.teacher){
-        commentView = <Comments comments={this.state.comments} dispatch={this.dispatch} projectId={this.state._id} callback={this.getComments} isShowCommentBox={this.state.isShowCommentBox}/>;
+        commentView = <Comments comments={this.state.comments} dispatch={this.dispatch} projectId={this.state._id} callback={this.getComment} isShowCommentBox={this.state.isShowCommentBox}/>;
       }
 			/* JSX */
 			return (
