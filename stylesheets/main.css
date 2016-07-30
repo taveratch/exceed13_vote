@@ -433,3 +433,7 @@ input::-webkit-input-placeholder {
   background-color: #64DDBB !important;
   transition: 1s !important;
 }
+
+.comment-textarea {
+  height: 150px !important;
+}

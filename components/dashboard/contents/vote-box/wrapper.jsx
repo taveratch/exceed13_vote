@@ -40,7 +40,7 @@ var Rb = require('react-bootstrap');
 					<div className="full-width content-box">
 						<p className="header">Vote</p>
 						<hr></hr>
-						<p>Tap on icon to vote (You can have more than 1 vote)</p>
+						<p>Tap on number to scale from 1 - 10</p>
 						{text.map(function(result, i) {
               if(self.props.checker[awards[i]]){
                 return (<VoteItem {...result} i={i}/>);

@@ -8,7 +8,7 @@
         isUpdate: false,
         user: auth.getUser(),
         name: '',
-        image_url: 'a',
+        image_url: 'http://exceed.cpe.ku.ac.th/wiki/resources/assets/exceed.png',
         isPreview: false,
         content: [
           {

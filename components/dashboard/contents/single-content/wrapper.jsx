@@ -16,10 +16,13 @@
     voteCheck: function(data) {
       this.dispatch({ type: 'update_vote_check', data: data });
     },
+    getComment: function() {
+      projectService.getComments(this.state.group.group_name,this.state._id);
+    },
     componentDidMount: function() {
       $('html').css({'height': "auto"});
       projectService.voteCheck(this.state._id);
-      projectService.getComments(this.state.group.group_name,this.state._id);
+      this.getComment();
       eventEmitter.getInstance().on(eventEmitter.event.project.voteCheck, this.voteCheck);
 			eventEmitter.getInstance().on(eventEmitter.event.comments.update, this.updateComments);
     },
@@ -42,13 +45,14 @@
 			var Navbar = require('../../../nav-bar/NavigationBar.jsx');
       var Comments = require('../comments/wrapper.jsx');
 			var Col = ReactBootstrap.Col;
+      var user = require('auth.service').getUser();
       var voteBoxView;
       if(this.isShowVoteBox()){
         voteBoxView = <VoteBox checker={this.state.voteChecker} projectId={this.state._id}/>;
       }
       var commentView;
-      if(!_.isEmpty(this.state.comments)){
-        commentView = <Comments comments={this.state.comments}/>;
+      if(!_.isEmpty(this.state.comments) || user.teacher){
+        commentView = <Comments comments={this.state.comments} dispatch={this.dispatch} projectId={this.state._id} callback={this.getComments} isShowCommentBox={this.state.isShowCommentBox}/>;
       }
 			/* JSX */
 			return (
