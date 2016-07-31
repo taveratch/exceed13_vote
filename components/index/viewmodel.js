@@ -6,12 +6,15 @@
       case 'init':
         return {
 					pane: 'timer',
-          time: action.time || 86400
+          time: action.time || 86400,
+          message: '',
+          round: 'document'
         };
       case 'update':
         return _.merge(state, {
           time: action.time,
-          message: action.message
+          message: action.message,
+          round: action.round
         });
 			case 'signin':
 				return _.merge(state, {

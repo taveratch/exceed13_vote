@@ -29,7 +29,7 @@
         var date = new Date(data.remain_time);
 				var now = new Date();
 				var diff = (date.getTime() - now.getTime()) / 1000;
-				self.dispatch({type: 'update', time: diff, message: data.message});
+				self.dispatch({type: 'update', time: diff, message: data.message, round: data.round});
       });
 			this.setInterval(function() {
 				self.dispatch({
@@ -65,13 +65,10 @@
 			var timelineProjDocProps = {
 				percent: 0,
 				header: 'Complete Project Document',
-
-				// header: 'Signin',
 				desc: 'Tell people what’s your project can do',
-
-				// desc: 'Sign in with KU account',
 				btnText: 'Go',
-				btnDisabled: false,
+        btnDisabled: false,
+				// btnDisabled: this.state.round === 'document',
 				onClick: function() {
           self.context.router.push({
             pathname: '/add'
@@ -84,7 +81,8 @@
 				header: 'Vote',
 				desc: 'Vote your favorite project',
 				btnText: 'Go',
-				btnDisabled: false,
+        btnDisabled: false,
+				// btnDisabled: this.state.round === 'vote',
 				onClick: function() {
           self.context.router.push({
             pathname: '/dashboard'
@@ -127,20 +125,17 @@
 						<div className="flex-center-y alt" style={{
 							height: "33%"
 						}}>
-							{/*<Col lgOffset={3} mdOffset={3} smOffset={2} xsOffset={1}>*/}
-							<TimelineItem {...timelineSigninProp}/> {/*</Col>*/}
+							<TimelineItem {...timelineSigninProp}/>
 						</div>
 						<div className="flex-center-y" style={{
 							height: "33%"
 						}}>
-							{/*<Col lgOffset={3} mdOffset={3} smOffset={2} xsOffset={1}>*/}
-							<TimelineItem {...timelineProjDocProps}/> {/*</Col>*/}
+							<TimelineItem {...timelineProjDocProps}/>
 						</div>
 						<div className="flex-center-y alt" style={{
 							height: "33%"
 						}}>
-							{/*<Col lgOffset={3} mdOffset={3} smOffset={2} xsOffset={1}>*/}
-							<TimelineItem {...timelineVoteProps}/> {/*</Col>*/}
+							<TimelineItem {...timelineVoteProps}/>
 						</div>
 					</div>
 				</div>
