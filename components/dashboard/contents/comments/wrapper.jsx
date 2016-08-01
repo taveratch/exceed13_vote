@@ -5,6 +5,10 @@
         /* Components */
         var Comment = require('./comment.jsx');
         var CommentBox = require('./add_comment_panel.jsx');
+        var commentBoxView;
+        if(this.props.isShowCommentBox) {
+          commentBoxView = <CommentBox isShow={this.props.isShowCommentBox} dispatch={this.props.dispatch} callback={this.props.callback} projectId={this.props.projectId}/>;
+        }
         /* JSX */
         return (
           <div className="full-width content-wrapper">
@@ -17,7 +21,7 @@
                     return <Comment key={i} {...result}/>;
                   })
                 }
-                <CommentBox isShow={this.props.isShowCommentBox} dispatch={this.props.dispatch} callback={this.props.callback} projectId={this.props.projectId}/>
+                { commentBoxView }
               </div>
             </div>
           </div>

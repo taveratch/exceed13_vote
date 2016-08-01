@@ -8,7 +8,7 @@ var React = require('react');
   var Action = require('../action');
 	module.exports = React.createClass({
 		getInitialState: function() {
-			return _.merge(vm()({}, {type: 'init'}), {score: this.defaultScoreItem()});
+			return _.merge(vm()({}, {type: 'init', isNormal: this.props.isNormal || true}), {score: this.defaultScoreItem()});
 		},
 		handleClick: function(index) {
       Action.update({key: this.props.i, score: index});

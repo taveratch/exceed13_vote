@@ -35,6 +35,12 @@
           type: 'close_modal'
         });
       },
+      updateVoted: function(votedScore) {
+        Dispatcher.dispatch({
+          type: 'update_voted',
+          votedScore: votedFormatter(votedScore)
+        });
+      },
       voteModalFormatter: function() {
         var data = Store.getState().data;
         var dataValue = _.values(data);
@@ -55,5 +61,19 @@
         });
       }
     };
+
+    function votedFormatter(voted) {
+  		var result = [-1, -1, -1];
+  		voted.map(function (item) {
+  			if (item.vote_category === 'best_of_hardware') {
+  				result[0] = item.score;
+  			} else if (item.vote_category === 'best_of_software') {
+  				result[1] = item.score;
+  			} else if (item.vote_category === 'popular') {
+  				result[2] = item.score;
+  			}
+  		});
+  		return result;
+  	}
     module.exports = Action;
 }());

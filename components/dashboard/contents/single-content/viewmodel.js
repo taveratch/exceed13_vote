@@ -20,7 +20,8 @@
 						popular: false
 					},
 					comments: [],
-          isShowCommentBox: user.teacher
+          isShowCommentBox: user.teacher,
+          voted: []
 				};
 			} else {
 				return _.merge(action.data.state.project, {
@@ -29,7 +30,9 @@
 						best_of_software: false,
 						popular: false
 					},
-					comments: []
+					comments: [],
+          isShowCommentBox: user.teacher,
+          voted: []
 				});
 			}
 			break;
@@ -41,6 +44,10 @@
 			return _.merge({}, state, {
 				comments: action.data
 			});
+    case 'update_voted':
+      return _.merge({}, state, {
+        voted: action.data
+      });
 		case 'comment':
       projectService.comment(action.projectId,action.comment, action.callback);
       return state;

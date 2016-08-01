@@ -4,7 +4,7 @@
       switch(action.type){
         case 'init':
           return {
-            action: 'normal'
+            action: action.isNormal || true ? 'normal' : 'selected',
           };
         case 'selected':
           return {

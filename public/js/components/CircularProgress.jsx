@@ -19,7 +19,7 @@ var CircularProgress = React.createClass({
 	render() {
       return (
          <div className="circular-progress" style={circleContainerStyle}>
-            <Circle percent={this.state.percent} strokeWidth="4" strokeColor={this.state.color} />
+           <Circle percent={this.state.percent} strokeWidth="4" strokeColor={this.state.color} />
          </div>
       );
    }

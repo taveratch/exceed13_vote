@@ -23,6 +23,7 @@
     componentDidMount: function() {
       $('html').css({'height': "auto"});
       projectService.voteCheck(this.state._id);
+      projectService.getVoted(this.state._id, this.updateVoteBox);
       this.getComment();
       eventEmitter.getInstance().on(eventEmitter.event.project.voteCheck, this.voteCheck);
 			eventEmitter.getInstance().on(eventEmitter.event.comments.update, this.updateComments);
@@ -31,6 +32,9 @@
       $('html').css({'height': "100%"});
       eventEmitter.getInstance().off(eventEmitter.event.project.voteCheck, this.voteCheck);
 			eventEmitter.getInstance().off(eventEmitter.event.comments.update, this.updateComments);
+    },
+    updateVoteBox: function(data) {
+      this.dispatch({type: 'update_voted', data: data.vote});
     },
     isShowVoteBox: function() {
       var isShow = false;

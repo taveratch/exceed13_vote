@@ -32,6 +32,9 @@
         case 'update_server_format':
           Store.update({ serverFormat: payload.data });
           break;
+        case 'update_voted':
+          Store.update({ votedScore: payload.votedScore });
+          break;
         case 'vote':
           Store.init();
           isChange = false;

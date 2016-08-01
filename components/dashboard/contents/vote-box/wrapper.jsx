@@ -6,6 +6,7 @@ var Rb = require('react-bootstrap');
   var Action = require('./action');
 	module.exports = React.createClass({
 		getInitialState: function() {
+      Store.init();
       return Store.getState();
     },
     _onChange: function() {

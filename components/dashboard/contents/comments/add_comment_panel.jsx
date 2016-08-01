@@ -4,6 +4,7 @@
       handleClick: function() {
         var comment = this.refs.comment.value;
         this.props.dispatch({type: 'comment', projectId:this.props.projectId, comment: comment, callback: this.props.callback});
+        this.refs.comment.value = '';
       },
       render: function() {
         return (
