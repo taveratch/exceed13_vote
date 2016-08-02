@@ -5,6 +5,19 @@
 ::-webkit-scrollbar {
     display: none;
 }
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+}
 body {
     /*font-family: 'Droid Sans', serif;*/
     /*font-family: 'Sukhumvit';*/
@@ -436,4 +449,9 @@ input::-webkit-input-placeholder {
 
 .comment-textarea {
   height: 150px !important;
+}
+
+.rc-progress-circle {
+  width: 100%;
+  height: 100%;
 }

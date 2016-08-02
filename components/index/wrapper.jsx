@@ -38,6 +38,11 @@
 				});
 			}, 1000);
 		},
+    componentWillReceiveProps: function(nextProps) {
+      if(this.props.routeParams.splat === 'signin'){
+        this.dispatch({type: 'signin'});
+      }
+    },
 		render: function() {
 			var dispatch = _.bind(this.dispatch, this);
       var self = this;
@@ -48,7 +53,7 @@
 			var AwardsPanel = require('./awards-panel/wrapper.jsx');
 			var TimelineItem = require('./index-2/timeline/wrapper.jsx');
 			var TimerPanel = require('./timer_panel.jsx');
-			var SigninPanel = require('./signin_panel.jsx');
+			var SigninPanel = require('./signin/signin_panel.jsx');
 			var Col = ReactBootstrap.Col;
 			var Row = ReactBootstrap.Row;
 			var timelineSigninProp = {

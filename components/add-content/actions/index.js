@@ -24,9 +24,11 @@
           type: types.NEW_BOX
         };
       },
-      submit: function() {
+      submit: function(callback) {
+        console.log(callback);
         return {
-          type: types.SUBMIT
+          type: types.SUBMIT,
+          callback: callback
         };
       },
       updateContent: function(id,data) {

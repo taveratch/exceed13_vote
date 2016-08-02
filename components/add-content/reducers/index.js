@@ -2,6 +2,7 @@
   'use strict';
     var auth = require('auth.service');
     var http = require('http.service');
+    var constants = require('constants.service');
     var id = 1;
     function initialState() {
       return {
@@ -64,7 +65,7 @@
       var newState = _.merge({},state);
       switch(action.type) {
         case types.INIT:
-          http.get('http://128.199.135.164:8080/api/project')
+          http.get(constants.url + '/api/project')
           .done(function(data) {
             var projects = data.projects;
             var project = _.filter(projects, function(p){ return p.group.group_name === state.user.group; });
@@ -112,13 +113,14 @@
           });
         case types.SUBMIT:
           if(state.isUpdate) {
-            http.put('http://128.199.135.164:8080/api/project', formatterUpdate(state))
+            http.put(constants.url + '/api/project', formatterUpdate(state))
             .done(function(data) {
               console.log('update project docs success');
               console.log(data);
+              action.callback(data); //callback from done button in preview page
             });
           }else{
-            http.post('http://128.199.135.164:8080/api/project',formatterCreate(state))
+            http.post(constants.url + '/api/project',formatterCreate(state))
             .done(function(data) {
               console.log(data);
             });
