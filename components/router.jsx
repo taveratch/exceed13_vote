@@ -17,11 +17,15 @@ var onCheckSignin = function(nextState, replace, callback) {
       pathname: '/signin'
     });
   }
+  var round = auth.getRound();
+  console.log("yyyyy");
+  console.log(round);
   callback();
 };
 var onCheckVote = function(nextState, replace, callback) {
   onCheckSignin(nextState,replace, callback);
   var round = auth.getRound();
+  console.log("xxxxxx");
   console.log(round);
   if(!round) {
     replace({

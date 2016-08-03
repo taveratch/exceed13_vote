@@ -12,6 +12,11 @@
       getInitialState: function() {
         return vm()({},{type: 'init'});
       },
+      gotoMain: function() {
+        this.context.router.push({
+          pathname: '/'
+        });
+      },
     	render: function() {
     		var Navbar = ReactBootstrap.Navbar;
     		var NavbarBrand = ReactBootstrap.NavbarBrand;
@@ -25,7 +30,7 @@
     					<a href="#" onClick={this.back} style={{marginRight: 10, marginLeft: 2}}>
                 <Image src="/assets/img/left-arrow-key.png" responsive style={{display: 'inline-block', height: 20}}/>
     					</a>
-              <Image src="/assets/img/logo.png" responsive style={{display: 'inline-block'}}/>
+              <img onClick={this.gotoMain} className="pointer img-responsive" src="/assets/img/logo.png" style={{display: 'inline-block'}}/>
     				</NavbarBrand>
     				<Nav pullRight>
     					<Profile {...this.state.user}/>

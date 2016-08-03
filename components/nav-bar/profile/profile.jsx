@@ -11,15 +11,15 @@ var Rb = require('react-bootstrap');
             var Col = Rb.Col;
             /* JSX */
             return (
-                <NavItem eventKey={1}>
-                    <div className="flex-center-y" style={{color: "black"}}>
-                      <img width={15} src="/assets/img/blue_circle.png" />
-                      <div style={{marginLeft: 20}}>
-                        <span>{this.props.username}</span>
-                        <br></br>
-                        <span className="thin-gray">{this.props.group}</span>
-                      </div>
+                <NavItem style={{cursor: "none"}} eventKey={1}>
+                  <div className="flex-center-y" style={{color: "black"}}>
+                    <img width={15} src="/assets/img/blue_circle.png" />
+                    <div style={{marginLeft: 20}}>
+                      <span>{this.props.username}</span>
+                      <br></br>
+                      <span className="thin-gray">{this.props.group}</span>
                     </div>
+                  </div>
                 </NavItem>
             );
         }
