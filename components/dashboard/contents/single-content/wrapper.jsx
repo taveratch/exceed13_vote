@@ -53,9 +53,7 @@
 			var Col = ReactBootstrap.Col;
       var user = require('auth.service').getUser();
       var voteBoxView;
-      if(this.isShowVoteBox()){
         voteBoxView = <VoteBox checker={this.state.voteChecker} voted={this.state.voted} projectId={this.state._id}/>;
-      }
       var commentView;
       if(!_.isEmpty(this.state.comments) || user.teacher){
         commentView = <Comments comments={this.state.comments} dispatch={this.dispatch} projectId={this.state._id} callback={this.getComment} isShowCommentBox={this.state.isShowCommentBox}/>;
