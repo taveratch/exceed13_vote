@@ -18,11 +18,13 @@
 			this.dispatch({type: 'update_contents', data: data});
 		},
 		componentDidMount: function() {
+			$('html').css({'height': "auto"});
 			event.getInstance().on(event.event.auth.signin, this.updateUser);
 			event.getInstance().on(event.event.contents.update, this.updateContents);
 			require('project.service').getContents();
 		},
 		componentWillUnmount: function() {
+			$('html').css({'height': "100%"});
 			event.getInstance().off(event.event.auth.signin, this.updateUser);
 			event.getInstance().off(event.event.contents.update, this.updateContents);
 		},
@@ -33,15 +35,15 @@
 			var NavBar = require('../nav-bar/NavigationBar.jsx');
 			var Thumbnails = require('./contents/thumbnails/wrapper.jsx');
 			return (
-				<div className="full-height">
+				<div className="">
 					<NavBar />
-					<div className="full-height" style={{
+					<div className="" style={{
 						paddingTop: 50
 					}}>
-						<div className="full-height full-width" style={{
-							padding: 15
+						<div className=" full-width" style={{
+							padding: 0
 						}}>
-							<div id="thumbnail-container" className="full-width full-height">
+							<div id="thumbnail-container" className="full-width">
 								<Thumbnails dispatch={dispatch} contents={this.state.contents}/>
 							</div>
 						</div>
