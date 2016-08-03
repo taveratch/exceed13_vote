@@ -25,7 +25,6 @@
         };
       },
       submit: function(callback) {
-        console.log(callback);
         return {
           type: types.SUBMIT,
           callback: callback

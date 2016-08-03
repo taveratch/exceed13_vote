@@ -116,13 +116,15 @@
             http.put(constants.url + '/api/project', formatterUpdate(state))
             .done(function(data) {
               console.log('update project docs success');
-              console.log(data);
+              // console.log(data);
               action.callback(data); //callback from done button in preview page
             });
           }else{
             http.post(constants.url + '/api/project',formatterCreate(state))
             .done(function(data) {
-              console.log(data);
+              console.log('new project docs success');
+              // console.log(data);
+              action.callback(data);
             });
           }
           return state;

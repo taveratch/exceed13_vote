@@ -25,8 +25,9 @@
 		},
     callback: function(data) {
       var self = this;
+      console.log('callbackk');
       setTimeout(function() {
-				self.context.router.push({pathname: '/dashboard'});
+        self.context.router.push({pathname: '/'});
 			}, 2000);
     },
 		submit: function() {
