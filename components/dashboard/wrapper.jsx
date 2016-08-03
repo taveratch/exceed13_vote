@@ -19,12 +19,14 @@
 		},
 		componentDidMount: function() {
 			$('html').css({'height': "auto"});
+      $('html').css({'padding-bottom': "15px"});
 			event.getInstance().on(event.event.auth.signin, this.updateUser);
 			event.getInstance().on(event.event.contents.update, this.updateContents);
 			require('project.service').getContents();
 		},
 		componentWillUnmount: function() {
 			$('html').css({'height': "100%"});
+      $('html').css({'padding-bottom': "0px"});
 			event.getInstance().off(event.event.auth.signin, this.updateUser);
 			event.getInstance().off(event.event.contents.update, this.updateContents);
 		},

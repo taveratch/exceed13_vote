@@ -8,7 +8,7 @@
       /* Components */
       var ContentBox = require('../../dashboard/contents/single-content/content-box.jsx');
       return (
-        <div className="thin">
+        <div>
           <div className="center">
             <p style={{fontSize: "1.7em"}}>{this.props.reducer.name}</p>
             <p>{this.props.reducer.user.group}</p>
