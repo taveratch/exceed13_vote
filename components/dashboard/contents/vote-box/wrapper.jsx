@@ -4,6 +4,7 @@ var Rb = require('react-bootstrap');
 	'use strict';
   var Store = require('./store');
   var Action = require('./action');
+  var key = 1;
 	module.exports = React.createClass({
 		getInitialState: function() {
       Store.init();
@@ -11,6 +12,9 @@ var Rb = require('react-bootstrap');
     },
     _onChange: function() {
       this.setState(Store.getState());
+    },
+    componentWillReceiveProps: function(nextProps) {
+      Action.updateVoted(nextProps.voted);
     },
     componentDidMount: function() {
       Store.addChangeListener(this._onChange);
@@ -26,9 +30,11 @@ var Rb = require('react-bootstrap');
       Action.closeModal();
     },
 		render: function() {
+      console.log(this.state.votedScore);
 			var self = this;
 			/* Components */
 			var VoteItem = require('./score-item/vote-item.jsx');
+      var VotedItem = require('./score-item/voted-item.jsx');
       var Modal = require('../single-content/modal/modal.jsx');
 			var text = require('text');
 			var Col = Rb.Col;
@@ -43,11 +49,10 @@ var Rb = require('react-bootstrap');
 						<hr></hr>
 						<p>Tap on number to scale from 1 - 10</p>
 						{text.map(function(result, i) {
-              if(self.props.checker[awards[i]]){
-                return (<VoteItem {...result} i={i}/>);
-              }
-              else{
-                return;
+              if(self.state.votedScore[i] !== -1) {
+                return <VotedItem {...result} score={self.state.votedScore[i]} />;
+              }else {
+                return <VoteItem {...result} score={self.state.votedScore[i]} i={i}/>;
               }
 						})
             }

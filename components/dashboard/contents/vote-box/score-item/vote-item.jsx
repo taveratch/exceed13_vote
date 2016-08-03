@@ -1,4 +1,3 @@
-var React = require('react');
 (function() {
 	'use strict';
 	var ScoreItem = require('./score-item.jsx');

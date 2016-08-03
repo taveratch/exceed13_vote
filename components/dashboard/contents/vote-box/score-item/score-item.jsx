@@ -23,7 +23,7 @@
         }
         return (
           <div {...mouseAction} style={{padding: 4, display: "inline-block"}}>
-            <div className={"score flex-center-y flex-center-x " + (this.props.selected ? "score-selected" : "score-normal")}>
+            <div className={"score flex-center-y flex-center-x " + (this.props.selected ? "score-selected" : "score-normal") + (this.props.voted || false ? " score-voted" : "")}>
               <span>{this.props.i}</span>
             </div>
           </div>

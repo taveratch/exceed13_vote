@@ -38,7 +38,6 @@
       votedScore: votedFormatter(voted)
     });
 	};
-	Store.init();
   module.exports = Store;
 
 

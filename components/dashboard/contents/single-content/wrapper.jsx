@@ -3,6 +3,7 @@
   function vm() { return require('./viewmodel'); }
   var eventEmitter = require('event.service.js');
   var projectService = require('project.service');
+  var key = 1;
 	module.exports = React.createClass({
 		getInitialState: function() {
       return vm()({},{type: 'init', data: this.props.location});
@@ -53,7 +54,7 @@
       var user = require('auth.service').getUser();
       var voteBoxView;
       if(this.isShowVoteBox()){
-        voteBoxView = <VoteBox checker={this.state.voteChecker} projectId={this.state._id}/>;
+        voteBoxView = <VoteBox checker={this.state.voteChecker} voted={this.state.voted} projectId={this.state._id}/>;
       }
       var commentView;
       if(!_.isEmpty(this.state.comments) || user.teacher){
@@ -63,7 +64,7 @@
 			return (
 				<div className="full-height">
 					<Navbar/>
-					<div className="full-height thin" style={{ paddingTop: 50 }}>
+					<div className="full-height" style={{ paddingTop: 50 }}>
 						<div className="full-width" style={{ padding: 15 }}>
               <div id="content-container" className="full-width">
                 <div className="full-width center" style={{position: 'relative'}}>
