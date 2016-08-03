@@ -49,7 +49,7 @@ html {
 }
 
 /*mobile view*/
-
+@media screen and (max-aspect-ratio: 1/1) { /* portrait styles here */}
 @media(max-width:768px) {
     #awards-panel {
         display: none;
