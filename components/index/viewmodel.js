@@ -1,3 +1,4 @@
+var cookie = require('js-cookie');
 (function () {
 	'use strict';
 	var auth = require('auth.service');
@@ -11,10 +12,16 @@
           round: 'document'
         };
       case 'update':
+        auth.setRound(action.round);
         return _.merge(state, {
           time: action.time,
           message: action.message,
           round: action.round
+        });
+      case 'update_time':
+        return _.merge(state, {
+          time: action.time,
+          message: action.message
         });
 			case 'signin':
 				return _.merge(state, {

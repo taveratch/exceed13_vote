@@ -1,6 +1,8 @@
+var cookie = require('js-cookie');
 (function() {
 	'use strict';
   var vm = require('./viewmodel');
+  var auth = require('auth.service');
 	module.exports = React.createClass({
     contextTypes: {
       router: React.PropTypes.object.isRequired
@@ -24,10 +26,15 @@
       var username = ReactDOM.findDOMNode(this.refs.username).value;
       var password = ReactDOM.findDOMNode(this.refs.password).value;
       var self = this;
+      var round = auth.getRound();
+      var pathname;
+      if(!round) { pathname = '/';}
+      else if(round === 'document'){ pathname= '/add'; }
+      else if(round === 'vote') { pathname = '/dashboard';}
       var callback = function(data) {
         if(data.success){
           self.context.router.push({
-            pathname: '/dashboard',
+            pathname: pathname,
             state: { text: "hello" }
           });
         }else {

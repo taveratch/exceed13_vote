@@ -1,3 +1,4 @@
+var cookie = require('js-cookie');
 (function() {
 	'use strict';
 
@@ -7,6 +8,7 @@
 	var event = require('event.service');
   var http = require('http.service');
   var constants = require('constants.service');
+  var auth = require('auth.service');
 	module.exports = React.createClass({
 		mixins: [TimerMixin],
 		contextTypes: {
@@ -33,7 +35,7 @@
       });
 			this.setInterval(function() {
 				self.dispatch({
-					type: 'update',
+					type: 'update_time',
 					time: self.state.time - 1,
 				});
 			}, 1000);
@@ -61,9 +63,12 @@
 				header: 'Signin',
 				desc: 'Sign in with KU account',
 				btnText: 'Sign in',
-				btnDisabled: false,
-				onClick: function() {
-					alert('Go signin');
+				btnDisabled: typeof auth.getUser() === 'undefined' ? false : true,
+        img: '/assets/img/green-circle-3-layers.png',
+        onClick: function() {
+          self.context.router.push({
+            pathname: '/'
+          });
 				},
 			};
 
@@ -72,8 +77,8 @@
 				header: 'Complete Project Document',
 				desc: 'Tell people what’s your project can do',
 				btnText: 'Go',
-        btnDisabled: false,
-				// btnDisabled: this.state.round === 'document',
+        img: this.state.round === 'document' ? '/assets/img/green-circle-3-layers.png' : '/assets/img/red-circle-3-layers.png',
+				btnDisabled: this.state.round !== 'document',
 				onClick: function() {
           self.context.router.push({
             pathname: '/add'
@@ -86,8 +91,8 @@
 				header: 'Vote',
 				desc: 'Vote your favorite project',
 				btnText: 'Go',
-        btnDisabled: false,
-				// btnDisabled: this.state.round === 'vote',
+				btnDisabled: this.state.round !== 'vote',
+        img: this.state.round !== 'document' ? '/assets/img/green-circle-3-layers.png' : '/assets/img/red-circle-3-layers.png',
 				onClick: function() {
           self.context.router.push({
             pathname: '/dashboard'
@@ -110,9 +115,11 @@
 						<NavigationBar user={vm().getUser()} dispatch={dispatch}/>
 						<div>
 							<div>
-								<img src="/assets/img/logo_inverse.png" className="img-responsive" style={{
-									display: "inline"
-								}}/>
+								<div className="logo-wrapper">
+                  <img src="/assets/img/logo_inverse.png" className="img-responsive" style={{
+                    display: "inline"
+                  }}/>
+                </div>
 								<div className="flex-center-x">
 									{view}
 								</div>

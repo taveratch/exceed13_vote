@@ -261,8 +261,8 @@ hr {
     transition: 0.5;
 }
 .disabled {
-    cursor: progress;
-    background: #E6A0D4;
+    cursor: not-allowed !important;
+    background-color: #DBDBDB !important;
 }
 .btn-vote {
     background-color: #E482CB;
@@ -335,6 +335,9 @@ hr {
     align-items: center;
     line-height: 15px;
     font-weight: 300;
+}
+.logo-wrapper {
+  margin-top: -5%;
 }
 .thin-gray {
     color: rgba(107, 104, 109, 0.7);
