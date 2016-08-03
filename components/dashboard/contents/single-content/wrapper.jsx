@@ -63,7 +63,7 @@
 			return (
 				<div className="full-height">
 					<Navbar/>
-					<div className="full-height" style={{ paddingTop: 50 }}>
+					<div className="full-height thin" style={{ paddingTop: 50 }}>
 						<div className="full-width" style={{ padding: 15 }}>
               <div id="content-container" className="full-width">
                 <div className="full-width center" style={{position: 'relative'}}>

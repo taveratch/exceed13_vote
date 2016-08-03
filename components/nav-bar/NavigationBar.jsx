@@ -22,7 +22,7 @@
     		return (
     			<Navbar fixedTop={true}>
     				<NavbarBrand className="page-scroll">
-    					<a href="#" onClick={this.back} style={{marginRight: 10}}>
+    					<a href="#" onClick={this.back} style={{marginRight: 10, marginLeft: 10}}>
                 <Image src="/assets/img/left-arrow-key.png" responsive style={{display: 'inline-block', height: 20}}/>
     					</a>
               <Image src="/assets/img/logo.png" responsive style={{display: 'inline-block'}}/>
