@@ -10,7 +10,7 @@ var CircleProgress = require('rc-progress').Circle;
           <Col xsOffset={1} xs={4} sm={4} md={4} lg={4} style={{display: 'flex', justifyContent: 'flex-end'}}>
             <div className="flex-center-y" style={{height: "110px", width: "110px"}}>
               {/* <CircleProgress percent={this.props.percent} strokeWidth={3} strokeColor="#E482CB" trailColor="#FBE6F6"/> */}
-              <img src={this.props.img} className="img-responsive"/>
+              <img src={this.props.img} className="img-responsive full-width full-height"/>
             </div>
           </Col>
           <Col xs={7} smOffset={1} sm={7} mdOffset={1} md={7} lgOffset={1} lg={7}>
