@@ -15,6 +15,7 @@ var Rb = require('react-bootstrap');
 			return (
 				<div>
 					{this.props.contents.map(function(result, i) {
+            if(!result.presented) { return; }
 						var props = {
 							i: i,
 							imgSrc: result.image_url,
